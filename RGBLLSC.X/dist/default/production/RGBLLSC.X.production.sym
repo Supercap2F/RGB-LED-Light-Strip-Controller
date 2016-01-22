@@ -42,8 +42,8 @@ __Hcommon 0 0 ABS 0
 __Lcommon 0 0 ABS 0
 __Heeprom_data 0 0 EEDATA 3
 __Leeprom_data 0 0 EEDATA 3
-__CFG_CLKOUTEN$ON 0 0 ABS 0
 ___int_sp 0 0 STACK 2
+__CFG_CLKOUTEN$OFF 0 0 ABS 0
 __Habs1 0 0 ABS 0
 __Labs1 0 0 ABS 0
 __Hsfr0 0 0 ABS 0
@@ -241,7 +241,7 @@ config 1000E 10011 CONFIG 1000E 0
 maintext FEA FF9 CODE FEA 0
 %locals
 dist/default/production/RGBLLSC.X.production.obj
-/tmp/xcXr9bquB
+/tmp/xcXvnrqC6
 318 7FD 0 CODE 0
 321 7FD 0 CODE 0
 327 7FD 0 CODE 0

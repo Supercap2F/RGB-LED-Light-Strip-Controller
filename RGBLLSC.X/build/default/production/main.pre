@@ -2773,7 +2773,7 @@ extern __bit __timeout;
 
 
 # 15 "main.c"
-#pragma config CLKOUTEN=ON
+#pragma config CLKOUTEN=OFF
 #pragma config WDTE=OFF
 #pragma config PWRTE=ON
 #pragma config CP=OFF

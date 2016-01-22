@@ -2052,7 +2052,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic.h: 185: extern __bit __powerdown;
 [; ;pic.h: 186: extern __bit __timeout;
 "15 main.c
-[p x CLKOUTEN=ON ]
+[p x CLKOUTEN=OFF ]
 "16
 [p x WDTE=OFF ]
 "17

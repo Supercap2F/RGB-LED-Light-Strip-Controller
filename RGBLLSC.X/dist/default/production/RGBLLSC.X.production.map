@@ -5,7 +5,7 @@ Linker command line:
 --edf=/opt/microchip/xc8/v1.35/dat/en_msgs.txt -cs \
   -h+dist/default/production/RGBLLSC.X.production.sym \
   --cmf=dist/default/production/RGBLLSC.X.production.cmf -z -Q12F1840 \
-  -o/tmp/xcXQXaADA -Mdist/default/production/RGBLLSC.X.production.map -E1 \
+  -o/tmp/xcXwU1vZ8 -Mdist/default/production/RGBLLSC.X.production.map -E1 \
   -ver=XC8 -ASTACK=02000h-020efh -pstack=STACK -ACODE=00h-07FFhx2 \
   -ASTRCODE=00h-0FFFh -ASTRING=00h-0FFhx16 -ACONST=00h-0FFhx16 \
   -AENTRY=00h-0FFhx16 -ACOMMON=070h-07Fh -ABANK0=020h-06Fh \
@@ -26,7 +26,7 @@ Linker command line:
   -pfunctab=CODE -ACONFIG=08007h-08008h -pconfig=CONFIG -DCONFIG=2 \
   -AIDLOC=08000h-08003h -pidloc=IDLOC -DIDLOC=2 -AEEDATA=00h-0FFh/0F000h \
   -peeprom_data=EEDATA -DEEDATA=2 -DCODE=2 -DSTRCODE=2 -DSTRING=2 -DCONST=2 \
-  -DENTRY=2 -k /tmp/xcX6UWbDB.obj \
+  -DENTRY=2 -k /tmp/xcXD1LqUh.obj \
   dist/default/production/RGBLLSC.X.production.obj 
 
 Object code version is 3.11
@@ -36,7 +36,7 @@ Machine type is 12F1840
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-/tmp/xcX6UWbDB.obj
+/tmp/xcXD1LqUh.obj
                 end_init                              2        2        2        0       0
                 reset_vec                             0        0        2        0       0
                 config                             8007     8007        2    1000E       0
@@ -276,7 +276,7 @@ UNUSED ADDRESS RANGES
 
 _OSCCONbits              (abs)        00099
 __CFG_BOREN$OFF          (abs)        00000
-__CFG_CLKOUTEN$ON        (abs)        00000
+__CFG_CLKOUTEN$OFF       (abs)        00000
 __CFG_CP$OFF             (abs)        00000
 __CFG_CPD$OFF            (abs)        00000
 __CFG_FCMEN$OFF          (abs)        00000

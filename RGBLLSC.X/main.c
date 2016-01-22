@@ -32,7 +32,7 @@ void main(void) {
     /***********************************************
      * oscillator                                  *
      ***********************************************/
-    OSCCONbits.SCS=0;
+    OSCCONbits.SCS=0; //t
     OSCCONbits.IRCF=0b1110;
     
     while(1);
