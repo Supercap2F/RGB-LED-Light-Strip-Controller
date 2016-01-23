@@ -2785,17 +2785,57 @@ extern __bit __timeout;
 #pragma config FOSC=INTOSC
 #pragma config PLLEN=ON
 
-# 37
+# 39
 void main(void) {
 
-# 46
+# 43
+int R=0; int G=0; int B=0;
+int Rx=0; int Gx=0; int Bx=0;
+
+# 49
 OSCCONbits.SCS=0;
 OSCCONbits.IRCF=0b1110;
 
-# 55
+# 58
 TRISA=0b00001110;
 ANSELA=0b00000000;
 
+R=254;
+G=55;
+B=0;
+PORTAbits.RA0=1;
+PORTAbits.RA5=1;
+PORTAbits.RA4=1;
 
+while(1) {
+if(Rx<R) {
+Rx++;
+}
+else {
+PORTAbits.RA0=~PORTAbits.RA0;
+R=254-R;
+Rx=0;
+}
+
+if(Gx<G) {
+Gx++;
+}
+else {
+PORTAbits.RA4=~PORTAbits.RA4;
+G=254-G;
+Gx=0;
+}
+
+if(Bx<B) {
+Bx++;
+}
+else {
+PORTAbits.RA5=~PORTAbits.RA5;
+B=254-B;
+Bx=0;
+}
+}
+
+# 109
 while(1);
 }

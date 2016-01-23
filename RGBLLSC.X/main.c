@@ -27,6 +27,8 @@
 /***********************************************
  * definitions                                 *
  ***********************************************/
+#define _XTAL_FREQ 32000000
+
 #define RED PORTAbits.RA0
 #define GRN PORTAbits.RA4
 #define BLU PORTAbits.RA5
@@ -38,7 +40,8 @@ void main(void) {
     /***********************************************
      * variable definitions                        *
      ***********************************************/
-    int var;
+    int R=0;  int G=0;  int B=0; 
+    int Rx=0; int Gx=0; int Bx=0;
     
     /***********************************************
      * oscillator configuration                    *
@@ -54,6 +57,53 @@ void main(void) {
      ***********************************************/
     TRISA=0b00001110;  // turn I/Os to I (1) or O (0)
     ANSELA=0b00000000; // make all pins digital
+    
+    R=254;
+    G=55;
+    B=0;
+    RED=1;
+    BLU=1;
+    GRN=1;
+    
+    while(1) {
+        if(Rx<R) {
+            Rx++;
+        }
+        else {
+            RED=~RED;
+            R=254-R; 
+            Rx=0;
+        }  
+        
+        if(Gx<G) {
+            Gx++;
+        }
+        else {
+            GRN=~GRN;
+            G=254-G; 
+            Gx=0;
+        } 
+        
+        if(Bx<B) {
+            Bx++;
+        }
+        else {
+            BLU=~BLU;
+            B=254-B; 
+            Bx=0;
+        } 
+    }
+    
+//    while(1) {
+//        RED=1; // turn on the RED LED
+//        for(x=0;x<R;x++) {
+//            _delay(3); // delay for 375nS 
+//        }
+//        RED=0; // turn off the RED LED
+//        for(x=0;x<(254-R);x++) {
+//            _delay(3); // delay for 375nS 
+//        }
+//    }
     
     
     while(1); // stop

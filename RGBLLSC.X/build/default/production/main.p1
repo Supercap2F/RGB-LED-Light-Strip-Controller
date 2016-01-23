@@ -15,6 +15,14 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _TRISA `Vuc ~T0 @X0 0 e@140 ]
 "2341
 [v _ANSELA `Vuc ~T0 @X0 0 e@396 ]
+"420
+[s S30 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S30 . RA0 RA1 RA2 RA3 RA4 RA5 ]
+"419
+[u S29 `S30 1 ]
+[n S29 . . ]
+"429
+[v _PORTAbits `VS29 ~T0 @X0 0 e@12 ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
@@ -2077,31 +2085,160 @@ Version 3.2 HI-TECH Software Intermediate Code
 [p x FOSC=INTOSC ]
 "25
 [p x PLLEN=ON ]
-"37
+"39
 [v _main `(v ~T0 @X0 1 ef ]
 {
-[; ;main.c: 37: void main(void) {
+[; ;main.c: 39: void main(void) {
 [e :U _main ]
 [f ]
-[; ;main.c: 46: OSCCONbits.SCS=0;
-"46
+"43
+[v _R `i ~T0 @X0 1 a ]
+[; ;main.c: 43: int R=0; int G=0; int B=0;
+[e = _R -> 0 `i ]
+[v _G `i ~T0 @X0 1 a ]
+[e = _G -> 0 `i ]
+[v _B `i ~T0 @X0 1 a ]
+[e = _B -> 0 `i ]
+"44
+[v _Rx `i ~T0 @X0 1 a ]
+[; ;main.c: 44: int Rx=0; int Gx=0; int Bx=0;
+[e = _Rx -> 0 `i ]
+[v _Gx `i ~T0 @X0 1 a ]
+[e = _Gx -> 0 `i ]
+[v _Bx `i ~T0 @X0 1 a ]
+[e = _Bx -> 0 `i ]
+[; ;main.c: 49: OSCCONbits.SCS=0;
+"49
 [e = . . _OSCCONbits 1 0 -> -> 0 `i `uc ]
-[; ;main.c: 47: OSCCONbits.IRCF=0b1110;
-"47
+[; ;main.c: 50: OSCCONbits.IRCF=0b1110;
+"50
 [e = . . _OSCCONbits 1 2 -> -> 14 `i `uc ]
-[; ;main.c: 55: TRISA=0b00001110;
-"55
+[; ;main.c: 58: TRISA=0b00001110;
+"58
 [e = _TRISA -> -> 14 `i `uc ]
-[; ;main.c: 56: ANSELA=0b00000000;
-"56
-[e = _ANSELA -> -> 0 `i `uc ]
-[; ;main.c: 59: while(1);
+[; ;main.c: 59: ANSELA=0b00000000;
 "59
+[e = _ANSELA -> -> 0 `i `uc ]
+[; ;main.c: 61: R=254;
+"61
+[e = _R -> 254 `i ]
+[; ;main.c: 62: G=55;
+"62
+[e = _G -> 55 `i ]
+[; ;main.c: 63: B=0;
+"63
+[e = _B -> 0 `i ]
+[; ;main.c: 64: PORTAbits.RA0=1;
+"64
+[e = . . _PORTAbits 0 0 -> -> 1 `i `uc ]
+[; ;main.c: 65: PORTAbits.RA5=1;
+"65
+[e = . . _PORTAbits 0 5 -> -> 1 `i `uc ]
+[; ;main.c: 66: PORTAbits.RA4=1;
+"66
+[e = . . _PORTAbits 0 4 -> -> 1 `i `uc ]
+[; ;main.c: 68: while(1) {
+"68
 [e :U 265 ]
+{
+[; ;main.c: 69: if(Rx<R) {
+"69
+[e $ ! < _Rx _R 267  ]
+{
+[; ;main.c: 70: Rx++;
+"70
+[e ++ _Rx -> 1 `i ]
+"71
+}
+[; ;main.c: 71: }
+[e $U 268  ]
+"72
+[e :U 267 ]
+[; ;main.c: 72: else {
+{
+[; ;main.c: 73: PORTAbits.RA0=~PORTAbits.RA0;
+"73
+[e = . . _PORTAbits 0 0 -> ~ -> . . _PORTAbits 0 0 `i `uc ]
+[; ;main.c: 74: R=254-R;
+"74
+[e = _R - -> 254 `i _R ]
+[; ;main.c: 75: Rx=0;
+"75
+[e = _Rx -> 0 `i ]
+"76
+}
+[e :U 268 ]
+[; ;main.c: 76: }
+[; ;main.c: 78: if(Gx<G) {
+"78
+[e $ ! < _Gx _G 269  ]
+{
+[; ;main.c: 79: Gx++;
+"79
+[e ++ _Gx -> 1 `i ]
+"80
+}
+[; ;main.c: 80: }
+[e $U 270  ]
+"81
+[e :U 269 ]
+[; ;main.c: 81: else {
+{
+[; ;main.c: 82: PORTAbits.RA4=~PORTAbits.RA4;
+"82
+[e = . . _PORTAbits 0 4 -> ~ -> . . _PORTAbits 0 4 `i `uc ]
+[; ;main.c: 83: G=254-G;
+"83
+[e = _G - -> 254 `i _G ]
+[; ;main.c: 84: Gx=0;
+"84
+[e = _Gx -> 0 `i ]
+"85
+}
+[e :U 270 ]
+[; ;main.c: 85: }
+[; ;main.c: 87: if(Bx<B) {
+"87
+[e $ ! < _Bx _B 271  ]
+{
+[; ;main.c: 88: Bx++;
+"88
+[e ++ _Bx -> 1 `i ]
+"89
+}
+[; ;main.c: 89: }
+[e $U 272  ]
+"90
+[e :U 271 ]
+[; ;main.c: 90: else {
+{
+[; ;main.c: 91: PORTAbits.RA5=~PORTAbits.RA5;
+"91
+[e = . . _PORTAbits 0 5 -> ~ -> . . _PORTAbits 0 5 `i `uc ]
+[; ;main.c: 92: B=254-B;
+"92
+[e = _B - -> 254 `i _B ]
+[; ;main.c: 93: Bx=0;
+"93
+[e = _Bx -> 0 `i ]
+"94
+}
+[e :U 272 ]
+"95
+}
 [e :U 264 ]
+"68
 [e $U 265  ]
 [e :U 266 ]
-[; ;main.c: 60: }
-"60
+[; ;main.c: 94: }
+[; ;main.c: 95: }
+[; ;main.c: 109: while(1);
+"109
+[e :U 274 ]
+[e :U 273 ]
+[e $U 274  ]
+[e :U 275 ]
+[; ;main.c: 110: }
+"110
 [e :UE 263 ]
 }
