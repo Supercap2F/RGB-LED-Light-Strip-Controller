@@ -61,50 +61,31 @@ void main(void) {
     R=254;
     G=55;
     B=0;
-    RED=1;
-    BLU=1;
-    GRN=1;
     
-    while(1) {
-        if(Rx<R) {
-            Rx++;
-        }
-        else {
-            RED=~RED;
-            R=254-R; 
-            Rx=0;
-        }  
+    /***********************************************
+     * LED loop: this loop sends PWM signals to    *
+     * the LEDs based upon the R,G and B variables *
+     ***********************************************/
+    RED=1; BLU=1; GRN=1;             // start the LED loop with LEDs on 
+    while(1) {                       // loop forever 
+        if(Rx<R)                     // if the time for the RED LED to be on/off has not ended 
+            Rx++;                    //     increment the time 
+        else {                       // else if it has 
+            RED=~RED; R=254-R; Rx=0; //     clear the time and flip the LED state 
+        }                            //
         
-        if(Gx<G) {
-            Gx++;
-        }
-        else {
-            GRN=~GRN;
-            G=254-G; 
-            Gx=0;
-        } 
+        if(Gx<G)                     // if the time for the GREEN LED to be on/off has not ended 
+            Gx++;                    //     increment the time
+        else {                       // else if it has
+            GRN=~GRN; G=254-G; Gx=0; //     clear the time and flip the LED state
+        }                            // 
         
-        if(Bx<B) {
-            Bx++;
-        }
-        else {
-            BLU=~BLU;
-            B=254-B; 
-            Bx=0;
-        } 
-    }
-    
-//    while(1) {
-//        RED=1; // turn on the RED LED
-//        for(x=0;x<R;x++) {
-//            _delay(3); // delay for 375nS 
-//        }
-//        RED=0; // turn off the RED LED
-//        for(x=0;x<(254-R);x++) {
-//            _delay(3); // delay for 375nS 
-//        }
-//    }
-    
+        if(Bx<B)                     // if the time for the BLUE LED to be on/off has not ended
+            Bx++;                    //     increment the time
+        else {                       // else if it has
+            BLU=~BLU; B=254-B; Bx=0; //     clear the time and flip the LED state
+        }                            //
+    }                                 
     
     while(1); // stop
 }
