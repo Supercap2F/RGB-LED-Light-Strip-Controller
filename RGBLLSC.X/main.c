@@ -25,15 +25,36 @@
 #pragma config PLLEN=ON     // turn on the 4x PLL
 
 /***********************************************
+ * definitions                                 *
+ ***********************************************/
+#define RED PORTAbits.RA0
+#define GRN PORTAbits.RA4
+#define BLU PORTAbits.RA5
+
+/***********************************************
  * main function                               *
  ***********************************************/
 void main(void) {
+    /***********************************************
+     * variable definitions                        *
+     ***********************************************/
+    
     
     /***********************************************
-     * oscillator                                  *
+     * oscillator configuration                    *
      ***********************************************/
-    OSCCONbits.SCS=0; //t
-    OSCCONbits.IRCF=0b1110;
+    OSCCONbits.SCS=0;       // set oscillator to 32MHz Tcy will be 8MHz
+    OSCCONbits.IRCF=0b1110; //
     
-    while(1);
+    /***********************************************
+     * pin setup                                   *
+     ***********************************************
+     *    | RA0 - RED | RA1 - SCL | RA2 - SDA |    * 
+     *    | RA3 - RST | RA4 - GRN | RA5 - BLU |    *
+     ***********************************************/
+    TRISA=0b00001110;  // turn I/Os to I (1) or O (0)
+    ANSELA=0b00000000; // make all pins digital
+    
+    
+    while(1); // stop
 }

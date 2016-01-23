@@ -11,6 +11,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S77 . . . ]
 "1391
 [v _OSCCONbits `VS77 ~T0 @X0 0 e@153 ]
+"973
+[v _TRISA `Vuc ~T0 @X0 0 e@140 ]
+"2341
+[v _ANSELA `Vuc ~T0 @X0 0 e@396 ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
@@ -2073,25 +2077,31 @@ Version 3.2 HI-TECH Software Intermediate Code
 [p x FOSC=INTOSC ]
 "25
 [p x PLLEN=ON ]
-"30
+"37
 [v _main `(v ~T0 @X0 1 ef ]
 {
-[; ;main.c: 30: void main(void) {
+[; ;main.c: 37: void main(void) {
 [e :U _main ]
 [f ]
-[; ;main.c: 35: OSCCONbits.SCS=0;
-"35
+[; ;main.c: 46: OSCCONbits.SCS=0;
+"46
 [e = . . _OSCCONbits 1 0 -> -> 0 `i `uc ]
-[; ;main.c: 36: OSCCONbits.IRCF=0b1110;
-"36
+[; ;main.c: 47: OSCCONbits.IRCF=0b1110;
+"47
 [e = . . _OSCCONbits 1 2 -> -> 14 `i `uc ]
-[; ;main.c: 38: while(1);
-"38
+[; ;main.c: 55: TRISA=0b00001110;
+"55
+[e = _TRISA -> -> 14 `i `uc ]
+[; ;main.c: 56: ANSELA=0b00000000;
+"56
+[e = _ANSELA -> -> 0 `i `uc ]
+[; ;main.c: 59: while(1);
+"59
 [e :U 265 ]
 [e :U 264 ]
 [e $U 265  ]
 [e :U 266 ]
-[; ;main.c: 39: }
-"39
+[; ;main.c: 60: }
+"60
 [e :UE 263 ]
 }

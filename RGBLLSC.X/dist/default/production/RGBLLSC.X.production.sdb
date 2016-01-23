@@ -11,8 +11,10 @@
 [v _eecpymem eecpymem `(v  1 e 0 0 ]
 "24
 [v _memcpyee memcpyee `(v  1 e 0 0 ]
-"30 /home/supercap2f/Documents/Electronics/Projects/RGBLLSC/RGBLLSC.X/main.c
+"37 /home/supercap2f/Documents/Electronics/Projects/RGBLLSC/RGBLLSC.X/main.c
 [v _main main `(v  1 e 0 0 ]
+"973 /opt/microchip/xc8/v1.35/include/pic12f1840.h
+[v _TRISA TRISA `VEuc  1 e 1 @140 ]
 [s S19 . 1 `uc 1 SCS0 1 0 :1:0 
 `uc 1 SCS1 1 0 :1:1 
 `uc 1 . 1 0 :1:2 
@@ -22,15 +24,17 @@
 `uc 1 IRCF3 1 0 :1:6 
 `uc 1 SPLLEN 1 0 :1:7 
 ]
-"1391 /opt/microchip/xc8/v1.35/include/pic12f1840.h
+"1391
 [s S28 . 1 `uc 1 SCS 1 0 :2:0 
 `uc 1 . 1 0 :1:2 
 `uc 1 IRCF 1 0 :4:3 
 ]
 [u S32 . 1 `S19 1 . 1 0 `S28 1 . 1 0 ]
 [v _OSCCONbits OSCCONbits `VES32  1 e 1 @153 ]
-"30 /home/supercap2f/Documents/Electronics/Projects/RGBLLSC/RGBLLSC.X/main.c
+"2341
+[v _ANSELA ANSELA `VEuc  1 e 1 @396 ]
+"37 /home/supercap2f/Documents/Electronics/Projects/RGBLLSC/RGBLLSC.X/main.c
 [v _main main `(v  1 e 0 0 ]
 {
-"39
+"60
 } 0

@@ -11,13 +11,13 @@
 # All addresses and the length are given in unqualified hexadecimal
 # in delta units.  Any other numeric values are decimal.
 %PSECTS
-$/tmp/xcXD1LqUh.obj
+$/tmp/xcXHunw6H.obj
 reset_vec CODE 0 0 0 2 2
 end_init CODE 0 2 2 2 2
 config CONFIG 0 8007 8007 2 2
 $dist/default/production/RGBLLSC.X.production.obj
 cinit CODE 0 7FD 7FD 3 2
-maintext CODE 0 7F5 7F5 8 2
+maintext CODE 0 7F1 7F1 C 2
 # %UNUSED Section
 # This section enumerates the unused ranges of each CLASS. Each entry
 # is described on a single line as follows:
@@ -30,9 +30,9 @@ RAM 120-16F 1
 BANK0 20-6F 1
 BANK1 A0-EF 1
 BANK2 120-16F 1
-CONST 4-7F4 2
+CONST 4-7F0 2
 CONST 800-FFF 2
-ENTRY 4-7F4 2
+ENTRY 4-7F0 2
 ENTRY 800-FFF 2
 IDLOC 8000-8003 2
 SFR10 500-56F 1
@@ -58,7 +58,7 @@ SFR29 E80-EEF 1
 SFR30 F00-F6F 1
 SFR31 F80-FEF 1
 STACK 2000-20EF 1
-CODE 4-7F4 2
+CODE 4-7F0 2
 CODE 800-FFF 2
 SFR0 0-1F 1
 SFR1 80-9F 1
@@ -73,9 +73,9 @@ SFR9 480-4EF 1
 BIGRAM 2000-20EF 1
 COMMON 70-7D 1
 EEDATA F000-F0FF 2
-STRCODE 4-7F4 2
+STRCODE 4-7F0 2
 STRCODE 800-FFF 2
-STRING 4-7F4 2
+STRING 4-7F0 2
 STRING 800-FFF 2
 # %LINETAB Section
 # This section enumerates the file/line to address mappings.
@@ -91,15 +91,17 @@ STRING 800-FFF 2
 # All other numeric values are in decimal.
 %LINETAB
 $dist/default/production/RGBLLSC.X.production.obj
-7FD cinit CODE >318:/tmp/xcXvnrqC6
-7FD cinit CODE >321:/tmp/xcXvnrqC6
-7FD cinit CODE >327:/tmp/xcXvnrqC6
-7FD cinit CODE >329:/tmp/xcXvnrqC6
-7FE cinit CODE >330:/tmp/xcXvnrqC6
-7F5 maintext CODE >30:/home/supercap2f/Documents/Electronics/Projects/RGBLLSC/RGBLLSC.X/main.c
-7F5 maintext CODE >35:/home/supercap2f/Documents/Electronics/Projects/RGBLLSC/RGBLLSC.X/main.c
-7F8 maintext CODE >36:/home/supercap2f/Documents/Electronics/Projects/RGBLLSC/RGBLLSC.X/main.c
-7FC maintext CODE >38:/home/supercap2f/Documents/Electronics/Projects/RGBLLSC/RGBLLSC.X/main.c
+7FD cinit CODE >322:/tmp/xcXlxaAFi
+7FD cinit CODE >325:/tmp/xcXlxaAFi
+7FD cinit CODE >331:/tmp/xcXlxaAFi
+7FD cinit CODE >333:/tmp/xcXlxaAFi
+7FE cinit CODE >334:/tmp/xcXlxaAFi
+7F1 maintext CODE >37:/home/supercap2f/Documents/Electronics/Projects/RGBLLSC/RGBLLSC.X/main.c
+7F1 maintext CODE >46:/home/supercap2f/Documents/Electronics/Projects/RGBLLSC/RGBLLSC.X/main.c
+7F4 maintext CODE >47:/home/supercap2f/Documents/Electronics/Projects/RGBLLSC/RGBLLSC.X/main.c
+7F8 maintext CODE >55:/home/supercap2f/Documents/Electronics/Projects/RGBLLSC/RGBLLSC.X/main.c
+7FA maintext CODE >56:/home/supercap2f/Documents/Electronics/Projects/RGBLLSC/RGBLLSC.X/main.c
+7FC maintext CODE >59:/home/supercap2f/Documents/Electronics/Projects/RGBLLSC/RGBLLSC.X/main.c
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -125,11 +127,11 @@ ltemp1 82 0 ABS 0 - dist/default/production/RGBLLSC.X.production.obj
 ltemp2 86 0 ABS 0 - dist/default/production/RGBLLSC.X.production.obj
 ltemp3 80 0 ABS 0 - dist/default/production/RGBLLSC.X.production.obj
 __Hstrings 0 0 ABS 0 strings -
-___sp 0 0 STACK 2 stack /tmp/xcXD1LqUh.obj
-_main FEA 0 CODE 0 maintext dist/default/production/RGBLLSC.X.production.obj
+___sp 0 0 STACK 2 stack /tmp/xcXHunw6H.obj
+_main FE2 0 CODE 0 maintext dist/default/production/RGBLLSC.X.production.obj
 btemp 7E 0 ABS 0 - dist/default/production/RGBLLSC.X.production.obj
 ltemp 7E 0 ABS 0 - dist/default/production/RGBLLSC.X.production.obj
-start 4 0 CODE 0 init /tmp/xcXD1LqUh.obj
+start 4 0 CODE 0 init /tmp/xcXHunw6H.obj
 ttemp 7E 0 ABS 0 - dist/default/production/RGBLLSC.X.production.obj
 wtemp 7E 0 ABS 0 - dist/default/production/RGBLLSC.X.production.obj
 __CFG_BOREN$OFF 0 0 ABS 0 - dist/default/production/RGBLLSC.X.production.obj
@@ -140,12 +142,12 @@ ttemp1 81 0 ABS 0 - dist/default/production/RGBLLSC.X.production.obj
 ttemp2 84 0 ABS 0 - dist/default/production/RGBLLSC.X.production.obj
 ttemp3 87 0 ABS 0 - dist/default/production/RGBLLSC.X.production.obj
 ttemp4 7F 0 ABS 0 - dist/default/production/RGBLLSC.X.production.obj
-intlevel0 0 0 CODE 0 functab /tmp/xcXD1LqUh.obj
-intlevel1 0 0 CODE 0 functab /tmp/xcXD1LqUh.obj
-intlevel2 0 0 CODE 0 functab /tmp/xcXD1LqUh.obj
-intlevel3 0 0 CODE 0 functab /tmp/xcXD1LqUh.obj
-intlevel4 0 0 CODE 0 functab /tmp/xcXD1LqUh.obj
-intlevel5 0 0 CODE 0 functab /tmp/xcXD1LqUh.obj
+intlevel0 0 0 CODE 0 functab /tmp/xcXHunw6H.obj
+intlevel1 0 0 CODE 0 functab /tmp/xcXHunw6H.obj
+intlevel2 0 0 CODE 0 functab /tmp/xcXHunw6H.obj
+intlevel3 0 0 CODE 0 functab /tmp/xcXHunw6H.obj
+intlevel4 0 0 CODE 0 functab /tmp/xcXHunw6H.obj
+intlevel5 0 0 CODE 0 functab /tmp/xcXHunw6H.obj
 _OSCCONbits 99 0 ABS 0 - dist/default/production/RGBLLSC.X.production.obj
 wtemp0 7E 0 ABS 0 - dist/default/production/RGBLLSC.X.production.obj
 wtemp1 80 0 ABS 0 - dist/default/production/RGBLLSC.X.production.obj
@@ -156,10 +158,11 @@ wtemp5 88 0 ABS 0 - dist/default/production/RGBLLSC.X.production.obj
 wtemp6 7F 0 ABS 0 - dist/default/production/RGBLLSC.X.production.obj
 __Hfunctab 0 0 CODE 0 functab -
 __Hclrtext 0 0 ABS 0 clrtext -
+_ANSELA 18C 0 ABS 0 - dist/default/production/RGBLLSC.X.production.obj
 __Lmaintext 0 0 ABS 0 maintext -
 __CFG_FCMEN$OFF 0 0 ABS 0 - dist/default/production/RGBLLSC.X.production.obj
 start_initialization FFA 0 CODE 0 cinit dist/default/production/RGBLLSC.X.production.obj
-___int_sp 0 0 STACK 2 stack /tmp/xcXD1LqUh.obj
+___int_sp 0 0 STACK 2 stack /tmp/xcXHunw6H.obj
 __Hbank0 0 0 ABS 0 bank0 -
 __Hbank1 0 0 ABS 0 bank1 -
 __Hbank2 0 0 ABS 0 bank2 -
@@ -292,7 +295,7 @@ __S2 0 0 ABS 0 - -
 __S3 0 0 ABS 0 - -
 __CFG_PLLEN$ON 0 0 ABS 0 - dist/default/production/RGBLLSC.X.production.obj
 __Lintentry 4 0 CODE 0 intentry -
-reset_vec 0 0 CODE 0 reset_vec /tmp/xcXD1LqUh.obj
+reset_vec 0 0 CODE 0 reset_vec /tmp/xcXHunw6H.obj
 __Lbank10 0 0 BANK10 1 bank10 -
 __Lbank11 0 0 BANK11 1 bank11 -
 __Lbank12 0 0 BANK12 1 bank12 -
@@ -315,14 +318,14 @@ __Lbank28 0 0 BANK28 1 bank28 -
 __Lbank29 0 0 BANK29 1 bank29 -
 __Lbank30 0 0 BANK30 1 bank30 -
 __Lbank31 0 0 BANK31 1 bank31 -
-__pmaintext FEA 0 CODE 0 maintext dist/default/production/RGBLLSC.X.production.obj
+__pmaintext FE2 0 CODE 0 maintext dist/default/production/RGBLLSC.X.production.obj
 __Lbigram 0 0 ABS 0 bigram -
 __Lcommon 0 0 ABS 0 common -
 __Lconfig 1000E 0 CONFIG 0 config -
 __CFG_CP$OFF 0 0 ABS 0 - dist/default/production/RGBLLSC.X.production.obj
 __CFG_WDTE$OFF 0 0 ABS 0 - dist/default/production/RGBLLSC.X.production.obj
-stackhi 20EF 0 ABS 0 - /tmp/xcXD1LqUh.obj
-stacklo 2000 0 ABS 0 - /tmp/xcXD1LqUh.obj
+stackhi 20EF 0 ABS 0 - /tmp/xcXHunw6H.obj
+stacklo 2000 0 ABS 0 - /tmp/xcXHunw6H.obj
 __Lspace_0 0 0 ABS 0 - -
 __Lspace_1 0 0 ABS 0 - -
 __Lspace_2 0 0 ABS 0 - -
@@ -344,6 +347,7 @@ __CFG_PWRTE$ON 0 0 ABS 0 - dist/default/production/RGBLLSC.X.production.obj
 __pcstackCOMMON 0 0 COMMON 1 cstackCOMMON dist/default/production/RGBLLSC.X.production.obj
 __Hend_init 8 0 CODE 0 end_init -
 __end_of_main FFA 0 CODE 0 maintext dist/default/production/RGBLLSC.X.production.obj
+_TRISA 8C 0 ABS 0 - dist/default/production/RGBLLSC.X.production.obj
 __Hram 0 0 ABS 0 ram -
 __Lram 0 0 ABS 0 ram -
 __CFG_CPD$OFF 0 0 ABS 0 - dist/default/production/RGBLLSC.X.production.obj
@@ -374,6 +378,6 @@ __initialization FFA 0 CODE 0 cinit dist/default/production/RGBLLSC.X.production
 # All other numeric quantities are in decimal.
 %SEGMENTS
 cinit 0 7FD FFA 3 2
-maintext 0 7F5 FEA 8 2
+maintext 0 7F1 FE2 C 2
 reset_vec 0 0 0 4 2
 config 0 8007 1000E 2 2
