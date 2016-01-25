@@ -11,20 +11,67 @@
 [v _eecpymem eecpymem `(v  1 e 0 0 ]
 "24
 [v _memcpyee memcpyee `(v  1 e 0 0 ]
-"39 /home/supercap2f/Documents/Electronics/Projects/RGBLLSC/RGBLLSC.X/main.c
+"47 /home/supercap2f/Documents/Electronics/Projects/RGBLLSC/RGBLLSC.X/main.c
 [v _main main `(v  1 e 0 0 ]
-[s S51 . 1 `uc 1 RA0 1 0 :1:0 
+"124
+[v _isr isr `II(v  1 e 0 0 ]
+[s S164 . 1 `uc 1 IOCIF 1 0 :1:0 
+`uc 1 INTF 1 0 :1:1 
+`uc 1 TMR0IF 1 0 :1:2 
+`uc 1 IOCIE 1 0 :1:3 
+`uc 1 INTE 1 0 :1:4 
+`uc 1 TMR0IE 1 0 :1:5 
+`uc 1 PEIE 1 0 :1:6 
+`uc 1 GIE 1 0 :1:7 
+]
+"360 /opt/microchip/xc8/v1.35/include/pic12f1840.h
+[s S173 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 T0IF 1 0 :1:2 
+`uc 1 . 1 0 :2:3 
+`uc 1 T0IE 1 0 :1:5 
+]
+[u S178 . 1 `S164 1 . 1 0 `S173 1 . 1 0 ]
+[v _INTCONbits INTCONbits `VES178  1 e 1 @11 ]
+[s S196 . 1 `uc 1 RA0 1 0 :1:0 
 `uc 1 RA1 1 0 :1:1 
 `uc 1 RA2 1 0 :1:2 
 `uc 1 RA3 1 0 :1:3 
 `uc 1 RA4 1 0 :1:4 
 `uc 1 RA5 1 0 :1:5 
 ]
-"429 /opt/microchip/xc8/v1.35/include/pic12f1840.h
-[u S58 . 1 `S51 1 . 1 0 ]
-[v _PORTAbits PORTAbits `VES58  1 e 1 @12 ]
+"429
+[u S203 . 1 `S196 1 . 1 0 ]
+[v _PORTAbits PORTAbits `VES203  1 e 1 @12 ]
+"463
+[v _PIR1 PIR1 `VEuc  1 e 1 @17 ]
+[s S213 . 1 `uc 1 TMR1IF 1 0 :1:0 
+`uc 1 TMR2IF 1 0 :1:1 
+`uc 1 CCP1IF 1 0 :1:2 
+`uc 1 SSP1IF 1 0 :1:3 
+`uc 1 TXIF 1 0 :1:4 
+`uc 1 RCIF 1 0 :1:5 
+`uc 1 ADIF 1 0 :1:6 
+`uc 1 TMR1GIF 1 0 :1:7 
+]
+"480
+[u S222 . 1 `S213 1 . 1 0 ]
+[v _PIR1bits PIR1bits `VES222  1 e 1 @17 ]
+"524
+[v _PIR2 PIR2 `VEuc  1 e 1 @18 ]
 "973
 [v _TRISA TRISA `VEuc  1 e 1 @140 ]
+[s S141 . 1 `uc 1 TMR1IE 1 0 :1:0 
+`uc 1 TMR2IE 1 0 :1:1 
+`uc 1 CCP1IE 1 0 :1:2 
+`uc 1 SSP1IE 1 0 :1:3 
+`uc 1 TXIE 1 0 :1:4 
+`uc 1 RCIE 1 0 :1:5 
+`uc 1 ADIE 1 0 :1:6 
+`uc 1 TMR1GIE 1 0 :1:7 
+]
+"1039
+[u S150 . 1 `S141 1 . 1 0 ]
+[v _PIE1bits PIE1bits `VES150  1 e 1 @145 ]
 [s S19 . 1 `uc 1 SCS0 1 0 :1:0 
 `uc 1 SCS1 1 0 :1:1 
 `uc 1 . 1 0 :1:2 
@@ -43,16 +90,83 @@
 [v _OSCCONbits OSCCONbits `VES32  1 e 1 @153 ]
 "2341
 [v _ANSELA ANSELA `VEuc  1 e 1 @396 ]
-"39 /home/supercap2f/Documents/Electronics/Projects/RGBLLSC/RGBLLSC.X/main.c
+"2970
+[v _SSP1BUF SSP1BUF `VEuc  1 e 1 @529 ]
+"3007
+[v _SSP1ADD SSP1ADD `VEuc  1 e 1 @530 ]
+[s S51 . 1 `uc 1 BF 1 0 :1:0 
+`uc 1 UA 1 0 :1:1 
+`uc 1 R_nW 1 0 :1:2 
+`uc 1 S 1 0 :1:3 
+`uc 1 P 1 0 :1:4 
+`uc 1 D_nA 1 0 :1:5 
+`uc 1 CKE 1 0 :1:6 
+`uc 1 SMP 1 0 :1:7 
+]
+"3158
+[u S60 . 1 `S51 1 . 1 0 ]
+[v _SSPSTATbits SSPSTATbits `VES60  1 e 1 @532 ]
+[s S72 . 1 `uc 1 SSPM0 1 0 :1:0 
+`uc 1 SSPM1 1 0 :1:1 
+`uc 1 SSPM2 1 0 :1:2 
+`uc 1 SSPM3 1 0 :1:3 
+`uc 1 CKP 1 0 :1:4 
+`uc 1 SSPEN 1 0 :1:5 
+`uc 1 SSPOV 1 0 :1:6 
+`uc 1 WCOL 1 0 :1:7 
+]
+"3231
+[s S81 . 1 `uc 1 SSPM 1 0 :4:0 
+]
+[u S83 . 1 `S72 1 . 1 0 `S81 1 . 1 0 ]
+[v _SSP1CON1bits SSP1CON1bits `VES83  1 e 1 @533 ]
+[s S98 . 1 `uc 1 SEN 1 0 :1:0 
+`uc 1 RSEN 1 0 :1:1 
+`uc 1 PEN 1 0 :1:2 
+`uc 1 RCEN 1 0 :1:3 
+`uc 1 ACKEN 1 0 :1:4 
+`uc 1 ACKDT 1 0 :1:5 
+`uc 1 ACKSTAT 1 0 :1:6 
+`uc 1 GCEN 1 0 :1:7 
+]
+"3427
+[u S107 . 1 `S98 1 . 1 0 ]
+[v _SSP1CON2bits SSP1CON2bits `VES107  1 e 1 @534 ]
+[s S119 . 1 `uc 1 DHEN 1 0 :1:0 
+`uc 1 AHEN 1 0 :1:1 
+`uc 1 SBCDE 1 0 :1:2 
+`uc 1 SDAHT 1 0 :1:3 
+`uc 1 BOEN 1 0 :1:4 
+`uc 1 SCIE 1 0 :1:5 
+`uc 1 PCIE 1 0 :1:6 
+`uc 1 ACKTIM 1 0 :1:7 
+]
+"3548
+[u S128 . 1 `S119 1 . 1 0 ]
+[v _SSP1CON3bits SSP1CON3bits `VES128  1 e 1 @535 ]
+"4884
+[v _CKP CKP `VEb  1 e 0 @4268 ]
+"5252
+[v _SSP1IF SSP1IF `VEb  1 e 0 @139 ]
+"41 /home/supercap2f/Documents/Electronics/Projects/RGBLLSC/RGBLLSC.X/main.c
+[v _x x `i  1 e 2 0 ]
+"42
+[v _color color `[3]uc  1 e 3 0 ]
+"47
 [v _main main `(v  1 e 0 0 ]
 {
-"43
-[v main@B B `i  1 a 2 12 ]
-[v main@G G `i  1 a 2 10 ]
-[v main@R R `i  1 a 2 8 ]
-"44
-[v main@Bx Bx `i  1 a 2 6 ]
-[v main@Gx Gx `i  1 a 2 4 ]
-[v main@Rx Rx `i  1 a 2 2 ]
-"91
+"51
+[v main@B B `i  1 a 2 10 ]
+[v main@G G `i  1 a 2 8 ]
+[v main@R R `i  1 a 2 6 ]
+"52
+[v main@Bx Bx `i  1 a 2 4 ]
+[v main@Gx Gx `i  1 a 2 2 ]
+[v main@Rx Rx `i  1 a 2 0 ]
+"119
+} 0
+"124
+[v _isr isr `II(v  1 e 0 0 ]
+{
+"147
 } 0

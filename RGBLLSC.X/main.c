@@ -33,6 +33,14 @@
 #define GRN PORTAbits.RA4
 #define BLU PORTAbits.RA5
 
+#define I2CADDRESS 0xA2
+
+/***********************************************
+ * global variables                            *
+ ***********************************************/
+int x=0;
+unsigned char color[3]; 
+
 /***********************************************
  * main function                               *
  ***********************************************/
@@ -67,7 +75,7 @@ void main(void) {
     SSP1CON2bits.SEN=1;       // clock will be stretched after each cycle 
     SSP1CON3bits.PCIE=0;      // stop condition interrupt disabled
     SSP1CON3bits.BOEN=0;      // SSP1BUF is only updated when SSP1OV is clear
-    SSP1ADD=0xA2;             // slave I2C address 
+    SSP1ADD=I2CADDRESS;       // slave I2C address 
     
     /***********************************************
      * interrupt configuration                     *
@@ -79,21 +87,15 @@ void main(void) {
     
     SSP1CON1bits.SSPEN=1; // enable the MSSP module 
     
-    
-    
-    
-    
-    
-    R=254;
-    G=55;
-    B=0;
-    
     /***********************************************
      * LED loop: this loop sends PWM signals to    *
      * the LEDs based upon the R,G and B variables *
      ***********************************************/
     RED=1; BLU=1; GRN=1;             // start the LED loop with LEDs on 
     while(1) {                       // loop forever 
+        R=color[0];
+        G=color[1];
+        B=color[2];
         if(Rx<R)                     // if the time for the RED LED to be on/off has not ended 
             Rx++;                    //     increment the time 
         else {                       // else if it has 
@@ -114,4 +116,32 @@ void main(void) {
     }                                 
     
     while(1); // stop
+}
+
+/***********************************************
+ * interrupt vector                            *
+ ***********************************************/
+void interrupt isr(void) {
+    if(PIR1bits.SSP1IF==1) {
+        SSP1IF=0; 
+        while(SSPSTATbits.P==0){ // wait for a stop bit 
+            if(SSPSTATbits.D_nA==0){ // if the last byte received was a address 
+                CKP=1;               // release SCL line 
+                while(SSP1IF==0);    // wait for next byte
+                SSP1IF=0;            // clear the flag
+            }
+            if(SSPSTATbits.D_nA==1) { // if the last byte received was data
+                color[x]=SSP1BUF;
+                CKP=1;  // release the SCL line 
+                x++;
+                if(x==3) 
+                    x=0;
+                while(SSP1IF==0); // wait for next byte 
+                SSP1IF=0;         // clear the flag
+            } 
+        }   
+    }
+    
+    x=0;
+    return;  
 }
