@@ -2803,39 +2803,28 @@ ANSELA=0b00000000;
 R=254;
 G=55;
 B=0;
-PORTAbits.RA0=1;
-PORTAbits.RA5=1;
-PORTAbits.RA4=1;
 
+# 69
+PORTAbits.RA0=1; PORTAbits.RA5=1; PORTAbits.RA4=1;
 while(1) {
-if(Rx<R) {
+if(Rx<R)
 Rx++;
-}
 else {
-PORTAbits.RA0=~PORTAbits.RA0;
-R=254-R;
-Rx=0;
+PORTAbits.RA0=~PORTAbits.RA0; R=254-R; Rx=0;
 }
 
-if(Gx<G) {
+if(Gx<G)
 Gx++;
-}
 else {
-PORTAbits.RA4=~PORTAbits.RA4;
-G=254-G;
-Gx=0;
+PORTAbits.RA4=~PORTAbits.RA4; G=254-G; Gx=0;
 }
 
-if(Bx<B) {
+if(Bx<B)
 Bx++;
-}
 else {
-PORTAbits.RA5=~PORTAbits.RA5;
-B=254-B;
-Bx=0;
+PORTAbits.RA5=~PORTAbits.RA5; B=254-B; Bx=0;
 }
 }
 
-# 109
 while(1);
 }

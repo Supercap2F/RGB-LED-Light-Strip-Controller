@@ -1,7 +1,7 @@
 
 
 Microchip Technology PIC LITE Macro Assembler V1.35 build -356382666 
-                                                                                               Sat Jan 23 14:58:46 2016
+                                                                                               Sat Jan 23 17:21:56 2016
 
 Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080246
      1                           	processor	12F1840
@@ -275,230 +275,208 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
    269  0774  01FC               	clrf	main@B
    270  0775  01FD               	clrf	main@B+1
    271                           
-   272                           ;main.c: 64: PORTAbits.RA0=1;
+   272                           ;main.c: 69: PORTAbits.RA0=1; PORTAbits.RA5=1; PORTAbits.RA4=1;
    273  0776  0020               	movlb	0	; select bank0
    274  0777  140C               	bsf	12,0	;volatile
-   275                           
-   276                           ;main.c: 65: PORTAbits.RA5=1;
-   277  0778  168C               	bsf	12,5	;volatile
-   278                           
-   279                           ;main.c: 66: PORTAbits.RA4=1;
-   280  0779  160C               	bsf	12,4	;volatile
-   281  077A                     l505:	
-   282                           ;main.c: 68: while(1) {
-   283                           
-   284                           
-   285                           ;main.c: 69: if(Rx<R) {
-   286  077A  0873               	movf	main@Rx+1,w
-   287  077B  3A80               	xorlw	128
-   288  077C  00F0               	movwf	??_main
-   289  077D  0879               	movf	main@R+1,w
-   290  077E  3A80               	xorlw	128
-   291  077F  0270               	subwf	??_main,w
-   292  0780  1D03               	skipz
-   293  0781  2F84               	goto	u15
-   294  0782  0878               	movf	main@R,w
-   295  0783  0272               	subwf	main@Rx,w
-   296  0784                     u15:	
-   297  0784  1803               	skipnc
-   298  0785  2F8B               	goto	l509
-   299                           
-   300                           ;main.c: 70: Rx++;
-   301  0786  3001               	movlw	1
-   302  0787  07F2               	addwf	main@Rx,f
-   303  0788  3000               	movlw	0
-   304  0789  3DF3               	addwfc	main@Rx+1,f
-   305                           
-   306                           ;main.c: 71: }
-   307  078A  2FA5               	goto	l13
-   308  078B                     l509:	
-   309                           
-   310                           ;main.c: 72: else {
-   311                           ;main.c: 73: PORTAbits.RA0=~PORTAbits.RA0;
-   312  078B  1003               	clrc
-   313  078C  0020               	movlb	0	; select bank0
-   314  078D  1C0C               	btfss	12,0	;volatile
-   315  078E  1403               	setc
-   316  078F  1C03               	btfss	3,0
-   317  0790  2F94               	goto	u20
-   318  0791  0020               	movlb	0	; select bank0
-   319  0792  140C               	bsf	12,0	;volatile
-   320  0793  2F96               	goto	l511
-   321  0794                     u20:	
-   322  0794  0020               	movlb	0	; select bank0
-   323  0795  100C               	bcf	12,0	;volatile
-   324  0796                     l511:	
-   325                           
-   326                           ;main.c: 74: R=254-R;
-   327  0796  0978               	comf	main@R,w
-   328  0797  00F0               	movwf	??_main
-   329  0798  0979               	comf	main@R+1,w
-   330  0799  00F1               	movwf	??_main+1
-   331  079A  0AF0               	incf	??_main,f
-   332  079B  1903               	skipnz
-   333  079C  0AF1               	incf	??_main+1,f
-   334  079D  0870               	movf	??_main,w
-   335  079E  3EFE               	addlw	254
-   336  079F  00F8               	movwf	main@R
-   337  07A0  3000               	movlw	0
-   338  07A1  3D71               	addwfc	??_main+1,w
-   339  07A2  00F9               	movwf	main@R+1
-   340                           
-   341                           ;main.c: 75: Rx=0;
-   342  07A3  01F2               	clrf	main@Rx
-   343  07A4  01F3               	clrf	main@Rx+1
-   344  07A5                     l13:	
-   345                           
-   346                           ;main.c: 76: }
-   347                           ;main.c: 78: if(Gx<G) {
-   348  07A5  0875               	movf	main@Gx+1,w
-   349  07A6  3A80               	xorlw	128
-   350  07A7  00F0               	movwf	??_main
-   351  07A8  087B               	movf	main@G+1,w
-   352  07A9  3A80               	xorlw	128
-   353  07AA  0270               	subwf	??_main,w
-   354  07AB  1D03               	skipz
-   355  07AC  2FAF               	goto	u45
-   356  07AD  087A               	movf	main@G,w
-   357  07AE  0274               	subwf	main@Gx,w
-   358  07AF                     u45:	
-   359  07AF  1803               	skipnc
-   360  07B0  2FB6               	goto	l517
-   361                           
-   362                           ;main.c: 79: Gx++;
-   363  07B1  3001               	movlw	1
-   364  07B2  07F4               	addwf	main@Gx,f
-   365  07B3  3000               	movlw	0
-   366  07B4  3DF5               	addwfc	main@Gx+1,f
-   367                           
-   368                           ;main.c: 80: }
-   369  07B5  2FD0               	goto	l15
-   370  07B6                     l517:	
-   371                           
-   372                           ;main.c: 81: else {
-   373                           ;main.c: 82: PORTAbits.RA4=~PORTAbits.RA4;
-   374  07B6  1003               	clrc
-   375  07B7  0020               	movlb	0	; select bank0
-   376  07B8  1E0C               	btfss	12,4	;volatile
-   377  07B9  1403               	setc
-   378  07BA  1C03               	btfss	3,0
-   379  07BB  2FBF               	goto	u50
-   380  07BC  0020               	movlb	0	; select bank0
-   381  07BD  160C               	bsf	12,4	;volatile
-   382  07BE  2FC1               	goto	l519
-   383  07BF                     u50:	
-   384  07BF  0020               	movlb	0	; select bank0
-   385  07C0  120C               	bcf	12,4	;volatile
-   386  07C1                     l519:	
-   387                           
-   388                           ;main.c: 83: G=254-G;
-   389  07C1  097A               	comf	main@G,w
-   390  07C2  00F0               	movwf	??_main
-   391  07C3  097B               	comf	main@G+1,w
-   392  07C4  00F1               	movwf	??_main+1
-   393  07C5  0AF0               	incf	??_main,f
-   394  07C6  1903               	skipnz
-   395  07C7  0AF1               	incf	??_main+1,f
-   396  07C8  0870               	movf	??_main,w
-   397  07C9  3EFE               	addlw	254
-   398  07CA  00FA               	movwf	main@G
-   399  07CB  3000               	movlw	0
-   400  07CC  3D71               	addwfc	??_main+1,w
-   401  07CD  00FB               	movwf	main@G+1
-   402                           
-   403                           ;main.c: 84: Gx=0;
-   404  07CE  01F4               	clrf	main@Gx
-   405  07CF  01F5               	clrf	main@Gx+1
-   406  07D0                     l15:	
+   275  0778  168C               	bsf	12,5	;volatile
+   276  0779  160C               	bsf	12,4	;volatile
+   277  077A                     l505:	
+   278                           ;main.c: 70: while(1) {
+   279                           
+   280                           
+   281                           ;main.c: 71: if(Rx<R)
+   282  077A  0873               	movf	main@Rx+1,w
+   283  077B  3A80               	xorlw	128
+   284  077C  00F0               	movwf	??_main
+   285  077D  0879               	movf	main@R+1,w
+   286  077E  3A80               	xorlw	128
+   287  077F  0270               	subwf	??_main,w
+   288  0780  1D03               	skipz
+   289  0781  2F84               	goto	u15
+   290  0782  0878               	movf	main@R,w
+   291  0783  0272               	subwf	main@Rx,w
+   292  0784                     u15:	
+   293  0784  1803               	skipnc
+   294  0785  2F8B               	goto	l509
+   295                           
+   296                           ;main.c: 72: Rx++;
+   297  0786  3001               	movlw	1
+   298  0787  07F2               	addwf	main@Rx,f
+   299  0788  3000               	movlw	0
+   300  0789  3DF3               	addwfc	main@Rx+1,f
+   301  078A  2FA5               	goto	l13
+   302  078B                     l509:	
+   303                           
+   304                           ;main.c: 73: else {
+   305                           ;main.c: 74: PORTAbits.RA0=~PORTAbits.RA0; R=254-R; Rx=0;
+   306  078B  1003               	clrc
+   307  078C  0020               	movlb	0	; select bank0
+   308  078D  1C0C               	btfss	12,0	;volatile
+   309  078E  1403               	setc
+   310  078F  1C03               	btfss	3,0
+   311  0790  2F94               	goto	u20
+   312  0791  0020               	movlb	0	; select bank0
+   313  0792  140C               	bsf	12,0	;volatile
+   314  0793  2F96               	goto	l511
+   315  0794                     u20:	
+   316  0794  0020               	movlb	0	; select bank0
+   317  0795  100C               	bcf	12,0	;volatile
+   318  0796                     l511:	
+   319  0796  0978               	comf	main@R,w
+   320  0797  00F0               	movwf	??_main
+   321  0798  0979               	comf	main@R+1,w
+   322  0799  00F1               	movwf	??_main+1
+   323  079A  0AF0               	incf	??_main,f
+   324  079B  1903               	skipnz
+   325  079C  0AF1               	incf	??_main+1,f
+   326  079D  0870               	movf	??_main,w
+   327  079E  3EFE               	addlw	254
+   328  079F  00F8               	movwf	main@R
+   329  07A0  3000               	movlw	0
+   330  07A1  3D71               	addwfc	??_main+1,w
+   331  07A2  00F9               	movwf	main@R+1
+   332  07A3  01F2               	clrf	main@Rx
+   333  07A4  01F3               	clrf	main@Rx+1
+   334  07A5                     l13:	
+   335                           
+   336                           ;main.c: 75: }
+   337                           ;main.c: 77: if(Gx<G)
+   338  07A5  0875               	movf	main@Gx+1,w
+   339  07A6  3A80               	xorlw	128
+   340  07A7  00F0               	movwf	??_main
+   341  07A8  087B               	movf	main@G+1,w
+   342  07A9  3A80               	xorlw	128
+   343  07AA  0270               	subwf	??_main,w
+   344  07AB  1D03               	skipz
+   345  07AC  2FAF               	goto	u45
+   346  07AD  087A               	movf	main@G,w
+   347  07AE  0274               	subwf	main@Gx,w
+   348  07AF                     u45:	
+   349  07AF  1803               	skipnc
+   350  07B0  2FB6               	goto	l517
+   351                           
+   352                           ;main.c: 78: Gx++;
+   353  07B1  3001               	movlw	1
+   354  07B2  07F4               	addwf	main@Gx,f
+   355  07B3  3000               	movlw	0
+   356  07B4  3DF5               	addwfc	main@Gx+1,f
+   357  07B5  2FD0               	goto	l15
+   358  07B6                     l517:	
+   359                           
+   360                           ;main.c: 79: else {
+   361                           ;main.c: 80: PORTAbits.RA4=~PORTAbits.RA4; G=254-G; Gx=0;
+   362  07B6  1003               	clrc
+   363  07B7  0020               	movlb	0	; select bank0
+   364  07B8  1E0C               	btfss	12,4	;volatile
+   365  07B9  1403               	setc
+   366  07BA  1C03               	btfss	3,0
+   367  07BB  2FBF               	goto	u50
+   368  07BC  0020               	movlb	0	; select bank0
+   369  07BD  160C               	bsf	12,4	;volatile
+   370  07BE  2FC1               	goto	l519
+   371  07BF                     u50:	
+   372  07BF  0020               	movlb	0	; select bank0
+   373  07C0  120C               	bcf	12,4	;volatile
+   374  07C1                     l519:	
+   375  07C1  097A               	comf	main@G,w
+   376  07C2  00F0               	movwf	??_main
+   377  07C3  097B               	comf	main@G+1,w
+   378  07C4  00F1               	movwf	??_main+1
+   379  07C5  0AF0               	incf	??_main,f
+   380  07C6  1903               	skipnz
+   381  07C7  0AF1               	incf	??_main+1,f
+   382  07C8  0870               	movf	??_main,w
+   383  07C9  3EFE               	addlw	254
+   384  07CA  00FA               	movwf	main@G
+   385  07CB  3000               	movlw	0
+   386  07CC  3D71               	addwfc	??_main+1,w
+   387  07CD  00FB               	movwf	main@G+1
+   388  07CE  01F4               	clrf	main@Gx
+   389  07CF  01F5               	clrf	main@Gx+1
+   390  07D0                     l15:	
+   391                           
+   392                           ;main.c: 81: }
+   393                           ;main.c: 83: if(Bx<B)
+   394  07D0  0877               	movf	main@Bx+1,w
+   395  07D1  3A80               	xorlw	128
+   396  07D2  00F0               	movwf	??_main
+   397  07D3  087D               	movf	main@B+1,w
+   398  07D4  3A80               	xorlw	128
+   399  07D5  0270               	subwf	??_main,w
+   400  07D6  1D03               	skipz
+   401  07D7  2FDA               	goto	u75
+   402  07D8  087C               	movf	main@B,w
+   403  07D9  0276               	subwf	main@Bx,w
+   404  07DA                     u75:	
+   405  07DA  1803               	skipnc
+   406  07DB  2FE1               	goto	l525
    407                           
-   408                           ;main.c: 85: }
-   409                           ;main.c: 87: if(Bx<B) {
-   410  07D0  0877               	movf	main@Bx+1,w
-   411  07D1  3A80               	xorlw	128
-   412  07D2  00F0               	movwf	??_main
-   413  07D3  087D               	movf	main@B+1,w
-   414  07D4  3A80               	xorlw	128
-   415  07D5  0270               	subwf	??_main,w
-   416  07D6  1D03               	skipz
-   417  07D7  2FDA               	goto	u75
-   418  07D8  087C               	movf	main@B,w
-   419  07D9  0276               	subwf	main@Bx,w
-   420  07DA                     u75:	
-   421  07DA  1803               	skipnc
-   422  07DB  2FE1               	goto	l525
-   423                           
-   424                           ;main.c: 88: Bx++;
-   425  07DC  3001               	movlw	1
-   426  07DD  07F6               	addwf	main@Bx,f
-   427  07DE  3000               	movlw	0
-   428  07DF  3DF7               	addwfc	main@Bx+1,f
-   429                           
-   430                           ;main.c: 89: }
-   431  07E0  2F7A               	goto	l505
-   432  07E1                     l525:	
-   433                           
-   434                           ;main.c: 90: else {
-   435                           ;main.c: 91: PORTAbits.RA5=~PORTAbits.RA5;
-   436  07E1  1003               	clrc
-   437  07E2  0020               	movlb	0	; select bank0
-   438  07E3  1E8C               	btfss	12,5	;volatile
-   439  07E4  1403               	setc
-   440  07E5  1C03               	btfss	3,0
-   441  07E6  2FEA               	goto	u80
-   442  07E7  0020               	movlb	0	; select bank0
-   443  07E8  168C               	bsf	12,5	;volatile
-   444  07E9  2FEC               	goto	l527
-   445  07EA                     u80:	
-   446  07EA  0020               	movlb	0	; select bank0
-   447  07EB  128C               	bcf	12,5	;volatile
-   448  07EC                     l527:	
-   449                           
-   450                           ;main.c: 92: B=254-B;
-   451  07EC  097C               	comf	main@B,w
-   452  07ED  00F0               	movwf	??_main
-   453  07EE  097D               	comf	main@B+1,w
-   454  07EF  00F1               	movwf	??_main+1
-   455  07F0  0AF0               	incf	??_main,f
-   456  07F1  1903               	skipnz
-   457  07F2  0AF1               	incf	??_main+1,f
-   458  07F3  0870               	movf	??_main,w
-   459  07F4  3EFE               	addlw	254
-   460  07F5  00FC               	movwf	main@B
-   461  07F6  3000               	movlw	0
-   462  07F7  3D71               	addwfc	??_main+1,w
-   463  07F8  00FD               	movwf	main@B+1
-   464                           
-   465                           ;main.c: 93: Bx=0;
-   466  07F9  01F6               	clrf	main@Bx
-   467  07FA  01F7               	clrf	main@Bx+1
-   468  07FB  2F7A               	goto	l505
-   469  07FC                     l20:	
-   470                           ;main.c: 94: }
-   471                           ;main.c: 95: }
-   472                           ;main.c: 109: while(1);
-   473                           
-   474  07FC  2FFC               	goto	l20
-   475  07FD                     __end_of_main:	
-   476  007E                     btemp	set	126	;btemp
-   477  007E                     wtemp	set	126
-   478  007E                     wtemp0	set	126
-   479  0080                     wtemp1	set	128
-   480  0082                     wtemp2	set	130
-   481  0084                     wtemp3	set	132
-   482  0086                     wtemp4	set	134
-   483  0088                     wtemp5	set	136
-   484  007F                     wtemp6	set	127
-   485  007E                     ttemp	set	126
-   486  007E                     ttemp0	set	126
-   487  0081                     ttemp1	set	129
-   488  0084                     ttemp2	set	132
-   489  0087                     ttemp3	set	135
-   490  007F                     ttemp4	set	127
-   491  007E                     ltemp	set	126
-   492  007E                     ltemp0	set	126
-   493  0082                     ltemp1	set	130
-   494  0086                     ltemp2	set	134
-   495  0080                     ltemp3	set	128
+   408                           ;main.c: 84: Bx++;
+   409  07DC  3001               	movlw	1
+   410  07DD  07F6               	addwf	main@Bx,f
+   411  07DE  3000               	movlw	0
+   412  07DF  3DF7               	addwfc	main@Bx+1,f
+   413  07E0  2F7A               	goto	l505
+   414  07E1                     l525:	
+   415                           
+   416                           ;main.c: 85: else {
+   417                           ;main.c: 86: PORTAbits.RA5=~PORTAbits.RA5; B=254-B; Bx=0;
+   418  07E1  1003               	clrc
+   419  07E2  0020               	movlb	0	; select bank0
+   420  07E3  1E8C               	btfss	12,5	;volatile
+   421  07E4  1403               	setc
+   422  07E5  1C03               	btfss	3,0
+   423  07E6  2FEA               	goto	u80
+   424  07E7  0020               	movlb	0	; select bank0
+   425  07E8  168C               	bsf	12,5	;volatile
+   426  07E9  2FEC               	goto	l527
+   427  07EA                     u80:	
+   428  07EA  0020               	movlb	0	; select bank0
+   429  07EB  128C               	bcf	12,5	;volatile
+   430  07EC                     l527:	
+   431  07EC  097C               	comf	main@B,w
+   432  07ED  00F0               	movwf	??_main
+   433  07EE  097D               	comf	main@B+1,w
+   434  07EF  00F1               	movwf	??_main+1
+   435  07F0  0AF0               	incf	??_main,f
+   436  07F1  1903               	skipnz
+   437  07F2  0AF1               	incf	??_main+1,f
+   438  07F3  0870               	movf	??_main,w
+   439  07F4  3EFE               	addlw	254
+   440  07F5  00FC               	movwf	main@B
+   441  07F6  3000               	movlw	0
+   442  07F7  3D71               	addwfc	??_main+1,w
+   443  07F8  00FD               	movwf	main@B+1
+   444  07F9  01F6               	clrf	main@Bx
+   445  07FA  01F7               	clrf	main@Bx+1
+   446  07FB  2F7A               	goto	l505
+   447  07FC                     l20:	
+   448                           ;main.c: 87: }
+   449                           ;main.c: 88: }
+   450                           ;main.c: 90: while(1);
+   451                           
+   452  07FC  2FFC               	goto	l20
+   453  07FD                     __end_of_main:	
+   454  007E                     btemp	set	126	;btemp
+   455  007E                     wtemp	set	126
+   456  007E                     wtemp0	set	126
+   457  0080                     wtemp1	set	128
+   458  0082                     wtemp2	set	130
+   459  0084                     wtemp3	set	132
+   460  0086                     wtemp4	set	134
+   461  0088                     wtemp5	set	136
+   462  007F                     wtemp6	set	127
+   463  007E                     ttemp	set	126
+   464  007E                     ttemp0	set	126
+   465  0081                     ttemp1	set	129
+   466  0084                     ttemp2	set	132
+   467  0087                     ttemp3	set	135
+   468  007F                     ttemp4	set	127
+   469  007E                     ltemp	set	126
+   470  007E                     ltemp0	set	126
+   471  0082                     ltemp1	set	130
+   472  0086                     ltemp2	set	134
+   473  0080                     ltemp3	set	128
 
 
 Data Sizes:
@@ -635,7 +613,7 @@ SFR31                0      0       0      32        0.0%
 
 
 Microchip Technology PIC Macro Assembler V1.35 build -356382666 
-Symbol Table                                                                                   Sat Jan 23 14:58:46 2016
+Symbol Table                                                                                   Sat Jan 23 17:21:56 2016
 
             __CFG_CP$OFF 0000                       l20 07FC                       l13 07A5  
                      l15 07D0                       u20 0794                       u15 0784  

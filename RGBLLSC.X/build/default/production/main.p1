@@ -2128,117 +2128,89 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.c: 63: B=0;
 "63
 [e = _B -> 0 `i ]
-[; ;main.c: 64: PORTAbits.RA0=1;
-"64
+[; ;main.c: 69: PORTAbits.RA0=1; PORTAbits.RA5=1; PORTAbits.RA4=1;
+"69
 [e = . . _PORTAbits 0 0 -> -> 1 `i `uc ]
-[; ;main.c: 65: PORTAbits.RA5=1;
-"65
 [e = . . _PORTAbits 0 5 -> -> 1 `i `uc ]
-[; ;main.c: 66: PORTAbits.RA4=1;
-"66
 [e = . . _PORTAbits 0 4 -> -> 1 `i `uc ]
-[; ;main.c: 68: while(1) {
-"68
+[; ;main.c: 70: while(1) {
+"70
 [e :U 265 ]
 {
-[; ;main.c: 69: if(Rx<R) {
-"69
-[e $ ! < _Rx _R 267  ]
-{
-[; ;main.c: 70: Rx++;
-"70
-[e ++ _Rx -> 1 `i ]
+[; ;main.c: 71: if(Rx<R)
 "71
-}
-[; ;main.c: 71: }
-[e $U 268  ]
+[e $ ! < _Rx _R 267  ]
+[; ;main.c: 72: Rx++;
 "72
-[e :U 267 ]
-[; ;main.c: 72: else {
-{
-[; ;main.c: 73: PORTAbits.RA0=~PORTAbits.RA0;
+[e ++ _Rx -> 1 `i ]
+[e $U 268  ]
 "73
-[e = . . _PORTAbits 0 0 -> ~ -> . . _PORTAbits 0 0 `i `uc ]
-[; ;main.c: 74: R=254-R;
+[e :U 267 ]
+[; ;main.c: 73: else {
+{
+[; ;main.c: 74: PORTAbits.RA0=~PORTAbits.RA0; R=254-R; Rx=0;
 "74
+[e = . . _PORTAbits 0 0 -> ~ -> . . _PORTAbits 0 0 `i `uc ]
 [e = _R - -> 254 `i _R ]
-[; ;main.c: 75: Rx=0;
-"75
 [e = _Rx -> 0 `i ]
-"76
+"75
 }
 [e :U 268 ]
-[; ;main.c: 76: }
-[; ;main.c: 78: if(Gx<G) {
-"78
+[; ;main.c: 75: }
+[; ;main.c: 77: if(Gx<G)
+"77
 [e $ ! < _Gx _G 269  ]
-{
-[; ;main.c: 79: Gx++;
-"79
+[; ;main.c: 78: Gx++;
+"78
 [e ++ _Gx -> 1 `i ]
-"80
-}
-[; ;main.c: 80: }
 [e $U 270  ]
-"81
+"79
 [e :U 269 ]
-[; ;main.c: 81: else {
+[; ;main.c: 79: else {
 {
-[; ;main.c: 82: PORTAbits.RA4=~PORTAbits.RA4;
-"82
+[; ;main.c: 80: PORTAbits.RA4=~PORTAbits.RA4; G=254-G; Gx=0;
+"80
 [e = . . _PORTAbits 0 4 -> ~ -> . . _PORTAbits 0 4 `i `uc ]
-[; ;main.c: 83: G=254-G;
-"83
 [e = _G - -> 254 `i _G ]
-[; ;main.c: 84: Gx=0;
-"84
 [e = _Gx -> 0 `i ]
-"85
+"81
 }
 [e :U 270 ]
-[; ;main.c: 85: }
-[; ;main.c: 87: if(Bx<B) {
-"87
+[; ;main.c: 81: }
+[; ;main.c: 83: if(Bx<B)
+"83
 [e $ ! < _Bx _B 271  ]
-{
-[; ;main.c: 88: Bx++;
-"88
+[; ;main.c: 84: Bx++;
+"84
 [e ++ _Bx -> 1 `i ]
-"89
-}
-[; ;main.c: 89: }
 [e $U 272  ]
-"90
+"85
 [e :U 271 ]
-[; ;main.c: 90: else {
+[; ;main.c: 85: else {
 {
-[; ;main.c: 91: PORTAbits.RA5=~PORTAbits.RA5;
-"91
+[; ;main.c: 86: PORTAbits.RA5=~PORTAbits.RA5; B=254-B; Bx=0;
+"86
 [e = . . _PORTAbits 0 5 -> ~ -> . . _PORTAbits 0 5 `i `uc ]
-[; ;main.c: 92: B=254-B;
-"92
 [e = _B - -> 254 `i _B ]
-[; ;main.c: 93: Bx=0;
-"93
 [e = _Bx -> 0 `i ]
-"94
+"87
 }
 [e :U 272 ]
-"95
+"88
 }
 [e :U 264 ]
-"68
+"70
 [e $U 265  ]
 [e :U 266 ]
-[; ;main.c: 94: }
-[; ;main.c: 95: }
-[; ;main.c: 109: while(1);
-"109
+[; ;main.c: 87: }
+[; ;main.c: 88: }
+[; ;main.c: 90: while(1);
+"90
 [e :U 274 ]
 [e :U 273 ]
 [e $U 274  ]
 [e :U 275 ]
-[; ;main.c: 110: }
-"110
+[; ;main.c: 91: }
+"91
 [e :UE 263 ]
 }

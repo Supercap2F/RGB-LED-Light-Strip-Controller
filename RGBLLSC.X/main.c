@@ -58,6 +58,32 @@ void main(void) {
     TRISA=0b00001110;  // turn I/Os to I (1) or O (0)
     ANSELA=0b00000000; // make all pins digital
     
+    /***********************************************
+     * I2C configuration                           *
+     ***********************************************/
+    SSPSTATbits.CKE=1;        // input thresholds are compliant with SMBus
+    SSP1CON1bits.SSPM=0b0110; // I2C 7 bit address mode with no STOP/START interrupts *MAY NEED TO BE CHANGED*
+    SSP1CON2bits.GCEN=1;      // enable general call address interrupt 
+    SSP1CON2bits.SEN=1;       // clock will be stretched after each cycle 
+    SSP1CON3bits.PCIE=0;      // stop condition interrupt disabled
+    SSP1CON3bits.BOEN=0;      // SSP1BUF is only updated when SSP1OV is clear
+    SSP1ADD=0xA2;             // slave I2C address 
+    
+    /***********************************************
+     * interrupt configuration                     *
+     ***********************************************/
+    PIE1bits.SSP1IE=1; // enables the MSSP interrupt 
+    PIR1=0x00;         // clear interrupt flags
+    PIR2=0x00;         //
+    INTCONbits.PEIE=1; // enable peripheral interrupts
+    
+    SSP1CON1bits.SSPEN=1; // enable the MSSP module 
+    
+    
+    
+    
+    
+    
     R=254;
     G=55;
     B=0;
