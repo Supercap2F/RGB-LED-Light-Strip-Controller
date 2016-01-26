@@ -11,34 +11,34 @@
 # All addresses and the length are given in unqualified hexadecimal
 # in delta units.  Any other numeric values are decimal.
 %PSECTS
-$/tmp/xcX74b6em.obj
+$dist/default/production/RGBLLSC.X.production.obj
+cinit CODE 0 59 59 11 2
+maintext CODE 0 6A 6A 86 2
+cstackCOMMON COMMON 1 79 79 3 1
+cstackBANK0 BANK0 1 24 24 1 1
+intentry CODE 0 4 4 53 2
+bssBANK0 BANK0 1 20 20 4 1
+bssCOMMON COMMON 1 70 70 9 1
+$/tmp/xcXZKEz6I.obj
 reset_vec CODE 0 0 0 2 2
 end_init CODE 0 57 57 2 2
 config CONFIG 0 8007 8007 2 2
-$dist/default/production/RGBLLSC.X.production.obj
-cinit CODE 0 59 59 11 2
-maintext CODE 0 6A 6A 8D 2
-cstackCOMMON COMMON 1 74 74 4 1
-cstackBANK0 BANK0 1 29 29 6 1
-intentry CODE 0 4 4 53 2
-bssBANK0 BANK0 1 20 20 9 1
-bssCOMMON COMMON 1 70 70 4 1
 # %UNUSED Section
 # This section enumerates the unused ranges of each CLASS. Each entry
 # is described on a single line as follows:
 #    <class name> <range> <delta>
 # Addresses given in the range are in hexadecimal and units of delta.
 %UNUSED
-RAM 2F-6F 1
+RAM 25-6F 1
 RAM A0-EF 1
 RAM 120-16F 1
-BANK0 2F-6F 1
+BANK0 25-6F 1
 BANK1 A0-EF 1
 BANK2 120-16F 1
 CONST 2-3 2
-CONST F7-FFF 2
+CONST F0-FFF 2
 ENTRY 2-3 2
-ENTRY F7-FFF 2
+ENTRY F0-FFF 2
 IDLOC 8000-8003 2
 SFR10 500-56F 1
 SFR11 580-5EF 1
@@ -62,9 +62,9 @@ SFR28 E00-E6F 1
 SFR29 E80-EEF 1
 SFR30 F00-F6F 1
 SFR31 F80-FEF 1
-STACK 200F-20EF 1
+STACK 2005-20EF 1
 CODE 2-3 2
-CODE F7-FFF 2
+CODE F0-FFF 2
 SFR0 0-1F 1
 SFR1 80-9F 1
 SFR2 100-11F 1
@@ -76,12 +76,12 @@ SFR7 380-3EF 1
 SFR8 400-46F 1
 SFR9 480-4EF 1
 BIGRAM 2000-20EF 1
-COMMON 78-7D 1
+COMMON 7C-7D 1
 EEDATA F000-F0FF 2
 STRCODE 2-3 2
-STRCODE F7-FFF 2
+STRCODE F0-FFF 2
 STRING 2-3 2
-STRING F7-FFF 2
+STRING F0-FFF 2
 # %LINETAB Section
 # This section enumerates the file/line to address mappings.
 # The beginning of the section is indicated by %LINETAB.
@@ -96,84 +96,87 @@ STRING F7-FFF 2
 # All other numeric values are in decimal.
 %LINETAB
 $dist/default/production/RGBLLSC.X.production.obj
-59 cinit CODE >353:/tmp/xcXUI8efH
-59 cinit CODE >356:/tmp/xcXUI8efH
-59 cinit CODE >386:/tmp/xcXUI8efH
-5A cinit CODE >387:/tmp/xcXUI8efH
-5B cinit CODE >388:/tmp/xcXUI8efH
-5C cinit CODE >389:/tmp/xcXUI8efH
-5D cinit CODE >393:/tmp/xcXUI8efH
-5E cinit CODE >394:/tmp/xcXUI8efH
-5F cinit CODE >395:/tmp/xcXUI8efH
-60 cinit CODE >396:/tmp/xcXUI8efH
-61 cinit CODE >397:/tmp/xcXUI8efH
-62 cinit CODE >398:/tmp/xcXUI8efH
-63 cinit CODE >399:/tmp/xcXUI8efH
-64 cinit CODE >400:/tmp/xcXUI8efH
-65 cinit CODE >401:/tmp/xcXUI8efH
-66 cinit CODE >407:/tmp/xcXUI8efH
-66 cinit CODE >409:/tmp/xcXUI8efH
-67 cinit CODE >410:/tmp/xcXUI8efH
-68 cinit CODE >411:/tmp/xcXUI8efH
-4 intentry CODE >119:/home/supercap2f/Documents/Electronics/Projects/RGBLLSC/RGBLLSC.X/main.c
-4 intentry CODE >124:/home/supercap2f/Documents/Electronics/Projects/RGBLLSC/RGBLLSC.X/main.c
-9 intentry CODE >125:/home/supercap2f/Documents/Electronics/Projects/RGBLLSC/RGBLLSC.X/main.c
-B intentry CODE >126:/home/supercap2f/Documents/Electronics/Projects/RGBLLSC/RGBLLSC.X/main.c
-C intentry CODE >128:/home/supercap2f/Documents/Electronics/Projects/RGBLLSC/RGBLLSC.X/main.c
-F intentry CODE >129:/home/supercap2f/Documents/Electronics/Projects/RGBLLSC/RGBLLSC.X/main.c
-18 intentry CODE >139:/home/supercap2f/Documents/Electronics/Projects/RGBLLSC/RGBLLSC.X/main.c
-18 intentry CODE >140:/home/supercap2f/Documents/Electronics/Projects/RGBLLSC/RGBLLSC.X/main.c
-1A intentry CODE >141:/home/supercap2f/Documents/Electronics/Projects/RGBLLSC/RGBLLSC.X/main.c
-22 intentry CODE >143:/home/supercap2f/Documents/Electronics/Projects/RGBLLSC/RGBLLSC.X/main.c
-23 intentry CODE >144:/home/supercap2f/Documents/Electronics/Projects/RGBLLSC/RGBLLSC.X/main.c
-23 intentry CODE >145:/home/supercap2f/Documents/Electronics/Projects/RGBLLSC/RGBLLSC.X/main.c
-25 intentry CODE >146:/home/supercap2f/Documents/Electronics/Projects/RGBLLSC/RGBLLSC.X/main.c
-26 intentry CODE >147:/home/supercap2f/Documents/Electronics/Projects/RGBLLSC/RGBLLSC.X/main.c
-26 intentry CODE >148:/home/supercap2f/Documents/Electronics/Projects/RGBLLSC/RGBLLSC.X/main.c
-28 intentry CODE >149:/home/supercap2f/Documents/Electronics/Projects/RGBLLSC/RGBLLSC.X/main.c
-29 intentry CODE >150:/home/supercap2f/Documents/Electronics/Projects/RGBLLSC/RGBLLSC.X/main.c
-29 intentry CODE >151:/home/supercap2f/Documents/Electronics/Projects/RGBLLSC/RGBLLSC.X/main.c
-2B intentry CODE >153:/home/supercap2f/Documents/Electronics/Projects/RGBLLSC/RGBLLSC.X/main.c
-2C intentry CODE >143:/home/supercap2f/Documents/Electronics/Projects/RGBLLSC/RGBLLSC.X/main.c
-3C intentry CODE >154:/home/supercap2f/Documents/Electronics/Projects/RGBLLSC/RGBLLSC.X/main.c
-40 intentry CODE >155:/home/supercap2f/Documents/Electronics/Projects/RGBLLSC/RGBLLSC.X/main.c
-45 intentry CODE >156:/home/supercap2f/Documents/Electronics/Projects/RGBLLSC/RGBLLSC.X/main.c
-47 intentry CODE >157:/home/supercap2f/Documents/Electronics/Projects/RGBLLSC/RGBLLSC.X/main.c
-49 intentry CODE >158:/home/supercap2f/Documents/Electronics/Projects/RGBLLSC/RGBLLSC.X/main.c
-4C intentry CODE >159:/home/supercap2f/Documents/Electronics/Projects/RGBLLSC/RGBLLSC.X/main.c
-4E intentry CODE >161:/home/supercap2f/Documents/Electronics/Projects/RGBLLSC/RGBLLSC.X/main.c
-50 intentry CODE >163:/home/supercap2f/Documents/Electronics/Projects/RGBLLSC/RGBLLSC.X/main.c
-51 intentry CODE >164:/home/supercap2f/Documents/Electronics/Projects/RGBLLSC/RGBLLSC.X/main.c
-52 intentry CODE >175:/home/supercap2f/Documents/Electronics/Projects/RGBLLSC/RGBLLSC.X/main.c
-6A maintext CODE >49:/home/supercap2f/Documents/Electronics/Projects/RGBLLSC/RGBLLSC.X/main.c
-6A maintext CODE >53:/home/supercap2f/Documents/Electronics/Projects/RGBLLSC/RGBLLSC.X/main.c
-71 maintext CODE >59:/home/supercap2f/Documents/Electronics/Projects/RGBLLSC/RGBLLSC.X/main.c
-74 maintext CODE >60:/home/supercap2f/Documents/Electronics/Projects/RGBLLSC/RGBLLSC.X/main.c
-78 maintext CODE >68:/home/supercap2f/Documents/Electronics/Projects/RGBLLSC/RGBLLSC.X/main.c
-7A maintext CODE >69:/home/supercap2f/Documents/Electronics/Projects/RGBLLSC/RGBLLSC.X/main.c
-7C maintext CODE >74:/home/supercap2f/Documents/Electronics/Projects/RGBLLSC/RGBLLSC.X/main.c
+59 cinit CODE >353:/tmp/xcXE0PJsj
+59 cinit CODE >356:/tmp/xcXE0PJsj
+59 cinit CODE >386:/tmp/xcXE0PJsj
+5A cinit CODE >387:/tmp/xcXE0PJsj
+5B cinit CODE >388:/tmp/xcXE0PJsj
+5C cinit CODE >389:/tmp/xcXE0PJsj
+5D cinit CODE >390:/tmp/xcXE0PJsj
+5E cinit CODE >391:/tmp/xcXE0PJsj
+5F cinit CODE >392:/tmp/xcXE0PJsj
+60 cinit CODE >393:/tmp/xcXE0PJsj
+61 cinit CODE >394:/tmp/xcXE0PJsj
+62 cinit CODE >398:/tmp/xcXE0PJsj
+63 cinit CODE >399:/tmp/xcXE0PJsj
+64 cinit CODE >400:/tmp/xcXE0PJsj
+65 cinit CODE >401:/tmp/xcXE0PJsj
+66 cinit CODE >407:/tmp/xcXE0PJsj
+66 cinit CODE >409:/tmp/xcXE0PJsj
+67 cinit CODE >410:/tmp/xcXE0PJsj
+68 cinit CODE >411:/tmp/xcXE0PJsj
+4 intentry CODE >118:/home/supercap2f/Documents/Electronics/Projects/RGBLLSC/RGBLLSC.X/main.c
+4 intentry CODE >123:/home/supercap2f/Documents/Electronics/Projects/RGBLLSC/RGBLLSC.X/main.c
+9 intentry CODE >124:/home/supercap2f/Documents/Electronics/Projects/RGBLLSC/RGBLLSC.X/main.c
+B intentry CODE >125:/home/supercap2f/Documents/Electronics/Projects/RGBLLSC/RGBLLSC.X/main.c
+C intentry CODE >126:/home/supercap2f/Documents/Electronics/Projects/RGBLLSC/RGBLLSC.X/main.c
+F intentry CODE >127:/home/supercap2f/Documents/Electronics/Projects/RGBLLSC/RGBLLSC.X/main.c
+18 intentry CODE >133:/home/supercap2f/Documents/Electronics/Projects/RGBLLSC/RGBLLSC.X/main.c
+18 intentry CODE >134:/home/supercap2f/Documents/Electronics/Projects/RGBLLSC/RGBLLSC.X/main.c
+1A intentry CODE >135:/home/supercap2f/Documents/Electronics/Projects/RGBLLSC/RGBLLSC.X/main.c
+22 intentry CODE >136:/home/supercap2f/Documents/Electronics/Projects/RGBLLSC/RGBLLSC.X/main.c
+23 intentry CODE >137:/home/supercap2f/Documents/Electronics/Projects/RGBLLSC/RGBLLSC.X/main.c
+23 intentry CODE >138:/home/supercap2f/Documents/Electronics/Projects/RGBLLSC/RGBLLSC.X/main.c
+25 intentry CODE >139:/home/supercap2f/Documents/Electronics/Projects/RGBLLSC/RGBLLSC.X/main.c
+26 intentry CODE >140:/home/supercap2f/Documents/Electronics/Projects/RGBLLSC/RGBLLSC.X/main.c
+26 intentry CODE >141:/home/supercap2f/Documents/Electronics/Projects/RGBLLSC/RGBLLSC.X/main.c
+28 intentry CODE >142:/home/supercap2f/Documents/Electronics/Projects/RGBLLSC/RGBLLSC.X/main.c
+29 intentry CODE >143:/home/supercap2f/Documents/Electronics/Projects/RGBLLSC/RGBLLSC.X/main.c
+29 intentry CODE >144:/home/supercap2f/Documents/Electronics/Projects/RGBLLSC/RGBLLSC.X/main.c
+2B intentry CODE >146:/home/supercap2f/Documents/Electronics/Projects/RGBLLSC/RGBLLSC.X/main.c
+2C intentry CODE >136:/home/supercap2f/Documents/Electronics/Projects/RGBLLSC/RGBLLSC.X/main.c
+3C intentry CODE >147:/home/supercap2f/Documents/Electronics/Projects/RGBLLSC/RGBLLSC.X/main.c
+40 intentry CODE >148:/home/supercap2f/Documents/Electronics/Projects/RGBLLSC/RGBLLSC.X/main.c
+45 intentry CODE >149:/home/supercap2f/Documents/Electronics/Projects/RGBLLSC/RGBLLSC.X/main.c
+47 intentry CODE >150:/home/supercap2f/Documents/Electronics/Projects/RGBLLSC/RGBLLSC.X/main.c
+4E intentry CODE >151:/home/supercap2f/Documents/Electronics/Projects/RGBLLSC/RGBLLSC.X/main.c
+50 intentry CODE >153:/home/supercap2f/Documents/Electronics/Projects/RGBLLSC/RGBLLSC.X/main.c
+51 intentry CODE >154:/home/supercap2f/Documents/Electronics/Projects/RGBLLSC/RGBLLSC.X/main.c
+52 intentry CODE >159:/home/supercap2f/Documents/Electronics/Projects/RGBLLSC/RGBLLSC.X/main.c
+6A maintext CODE >50:/home/supercap2f/Documents/Electronics/Projects/RGBLLSC/RGBLLSC.X/main.c
+6A maintext CODE >55:/home/supercap2f/Documents/Electronics/Projects/RGBLLSC/RGBLLSC.X/main.c
+6D maintext CODE >56:/home/supercap2f/Documents/Electronics/Projects/RGBLLSC/RGBLLSC.X/main.c
+71 maintext CODE >64:/home/supercap2f/Documents/Electronics/Projects/RGBLLSC/RGBLLSC.X/main.c
+73 maintext CODE >65:/home/supercap2f/Documents/Electronics/Projects/RGBLLSC/RGBLLSC.X/main.c
+75 maintext CODE >70:/home/supercap2f/Documents/Electronics/Projects/RGBLLSC/RGBLLSC.X/main.c
+77 maintext CODE >71:/home/supercap2f/Documents/Electronics/Projects/RGBLLSC/RGBLLSC.X/main.c
+7B maintext CODE >72:/home/supercap2f/Documents/Electronics/Projects/RGBLLSC/RGBLLSC.X/main.c
+7C maintext CODE >73:/home/supercap2f/Documents/Electronics/Projects/RGBLLSC/RGBLLSC.X/main.c
+7D maintext CODE >74:/home/supercap2f/Documents/Electronics/Projects/RGBLLSC/RGBLLSC.X/main.c
 7E maintext CODE >75:/home/supercap2f/Documents/Electronics/Projects/RGBLLSC/RGBLLSC.X/main.c
-82 maintext CODE >76:/home/supercap2f/Documents/Electronics/Projects/RGBLLSC/RGBLLSC.X/main.c
-83 maintext CODE >77:/home/supercap2f/Documents/Electronics/Projects/RGBLLSC/RGBLLSC.X/main.c
-84 maintext CODE >78:/home/supercap2f/Documents/Electronics/Projects/RGBLLSC/RGBLLSC.X/main.c
-85 maintext CODE >79:/home/supercap2f/Documents/Electronics/Projects/RGBLLSC/RGBLLSC.X/main.c
-86 maintext CODE >80:/home/supercap2f/Documents/Electronics/Projects/RGBLLSC/RGBLLSC.X/main.c
-88 maintext CODE >85:/home/supercap2f/Documents/Electronics/Projects/RGBLLSC/RGBLLSC.X/main.c
-8A maintext CODE >88:/home/supercap2f/Documents/Electronics/Projects/RGBLLSC/RGBLLSC.X/main.c
-8B maintext CODE >89:/home/supercap2f/Documents/Electronics/Projects/RGBLLSC/RGBLLSC.X/main.c
-8C maintext CODE >91:/home/supercap2f/Documents/Electronics/Projects/RGBLLSC/RGBLLSC.X/main.c
-8E maintext CODE >97:/home/supercap2f/Documents/Electronics/Projects/RGBLLSC/RGBLLSC.X/main.c
-92 maintext CODE >99:/home/supercap2f/Documents/Electronics/Projects/RGBLLSC/RGBLLSC.X/main.c
-9D maintext CODE >100:/home/supercap2f/Documents/Electronics/Projects/RGBLLSC/RGBLLSC.X/main.c
-A2 maintext CODE >102:/home/supercap2f/Documents/Electronics/Projects/RGBLLSC/RGBLLSC.X/main.c
-B0 maintext CODE >105:/home/supercap2f/Documents/Electronics/Projects/RGBLLSC/RGBLLSC.X/main.c
-BC maintext CODE >106:/home/supercap2f/Documents/Electronics/Projects/RGBLLSC/RGBLLSC.X/main.c
-C2 maintext CODE >108:/home/supercap2f/Documents/Electronics/Projects/RGBLLSC/RGBLLSC.X/main.c
-D3 maintext CODE >111:/home/supercap2f/Documents/Electronics/Projects/RGBLLSC/RGBLLSC.X/main.c
-DE maintext CODE >112:/home/supercap2f/Documents/Electronics/Projects/RGBLLSC/RGBLLSC.X/main.c
-E4 maintext CODE >114:/home/supercap2f/Documents/Electronics/Projects/RGBLLSC/RGBLLSC.X/main.c
-F5 maintext CODE >98:/home/supercap2f/Documents/Electronics/Projects/RGBLLSC/RGBLLSC.X/main.c
-F6 maintext CODE >118:/home/supercap2f/Documents/Electronics/Projects/RGBLLSC/RGBLLSC.X/main.c
+7F maintext CODE >76:/home/supercap2f/Documents/Electronics/Projects/RGBLLSC/RGBLLSC.X/main.c
+81 maintext CODE >81:/home/supercap2f/Documents/Electronics/Projects/RGBLLSC/RGBLLSC.X/main.c
+83 maintext CODE >82:/home/supercap2f/Documents/Electronics/Projects/RGBLLSC/RGBLLSC.X/main.c
+84 maintext CODE >83:/home/supercap2f/Documents/Electronics/Projects/RGBLLSC/RGBLLSC.X/main.c
+85 maintext CODE >85:/home/supercap2f/Documents/Electronics/Projects/RGBLLSC/RGBLLSC.X/main.c
+87 maintext CODE >91:/home/supercap2f/Documents/Electronics/Projects/RGBLLSC/RGBLLSC.X/main.c
+8B maintext CODE >93:/home/supercap2f/Documents/Electronics/Projects/RGBLLSC/RGBLLSC.X/main.c
+96 maintext CODE >94:/home/supercap2f/Documents/Electronics/Projects/RGBLLSC/RGBLLSC.X/main.c
+9B maintext CODE >96:/home/supercap2f/Documents/Electronics/Projects/RGBLLSC/RGBLLSC.X/main.c
+A6 maintext CODE >97:/home/supercap2f/Documents/Electronics/Projects/RGBLLSC/RGBLLSC.X/main.c
+A7 maintext CODE >98:/home/supercap2f/Documents/Electronics/Projects/RGBLLSC/RGBLLSC.X/main.c
+A9 maintext CODE >101:/home/supercap2f/Documents/Electronics/Projects/RGBLLSC/RGBLLSC.X/main.c
+B5 maintext CODE >102:/home/supercap2f/Documents/Electronics/Projects/RGBLLSC/RGBLLSC.X/main.c
+BA maintext CODE >104:/home/supercap2f/Documents/Electronics/Projects/RGBLLSC/RGBLLSC.X/main.c
+C5 maintext CODE >105:/home/supercap2f/Documents/Electronics/Projects/RGBLLSC/RGBLLSC.X/main.c
+C9 maintext CODE >106:/home/supercap2f/Documents/Electronics/Projects/RGBLLSC/RGBLLSC.X/main.c
+CB maintext CODE >109:/home/supercap2f/Documents/Electronics/Projects/RGBLLSC/RGBLLSC.X/main.c
+D7 maintext CODE >110:/home/supercap2f/Documents/Electronics/Projects/RGBLLSC/RGBLLSC.X/main.c
+DD maintext CODE >112:/home/supercap2f/Documents/Electronics/Projects/RGBLLSC/RGBLLSC.X/main.c
+E8 maintext CODE >113:/home/supercap2f/Documents/Electronics/Projects/RGBLLSC/RGBLLSC.X/main.c
+EC maintext CODE >114:/home/supercap2f/Documents/Electronics/Projects/RGBLLSC/RGBLLSC.X/main.c
+EE maintext CODE >92:/home/supercap2f/Documents/Electronics/Projects/RGBLLSC/RGBLLSC.X/main.c
+EF maintext CODE >117:/home/supercap2f/Documents/Electronics/Projects/RGBLLSC/RGBLLSC.X/main.c
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -186,31 +189,27 @@ F6 maintext CODE >118:/home/supercap2f/Documents/Electronics/Projects/RGBLLSC/RG
 # was defined in a psect then <psect> will be "-". File-name
 # is the name of the object file in which the symbol was defined.
 %SYMTAB
-_x 72 0 COMMON 1 bssCOMMON dist/default/production/RGBLLSC.X.production.obj
 ___latbits 1 0 ABS 0 - dist/default/production/RGBLLSC.X.production.obj
 __Hspace_0 8009 0 ABS 0 - -
-__Hspace_1 78 0 ABS 0 - -
+__Hspace_1 7C 0 ABS 0 - -
 __Hspace_2 0 0 ABS 0 - -
 __Hspace_3 0 0 ABS 0 - -
 __CFG_IESO$OFF 0 0 ABS 0 - dist/default/production/RGBLLSC.X.production.obj
 __Heeprom_data 0 0 EEDATA 3 eeprom_data -
 __CFG_MCLRE$ON 0 0 ABS 0 - dist/default/production/RGBLLSC.X.production.obj
-_Bx 23 0 BANK0 1 bssBANK0 dist/default/production/RGBLLSC.X.production.obj
-_Gx 25 0 BANK0 1 bssBANK0 dist/default/production/RGBLLSC.X.production.obj
-_Rx 70 0 COMMON 1 bssCOMMON dist/default/production/RGBLLSC.X.production.obj
+_Bx 20 0 BANK0 1 bssBANK0 dist/default/production/RGBLLSC.X.production.obj
+_Gx 75 0 COMMON 1 bssCOMMON dist/default/production/RGBLLSC.X.production.obj
+_Rx 77 0 COMMON 1 bssCOMMON dist/default/production/RGBLLSC.X.production.obj
 ltemp0 7E 0 ABS 0 - dist/default/production/RGBLLSC.X.production.obj
 ltemp1 82 0 ABS 0 - dist/default/production/RGBLLSC.X.production.obj
 ltemp2 86 0 ABS 0 - dist/default/production/RGBLLSC.X.production.obj
 ltemp3 80 0 ABS 0 - dist/default/production/RGBLLSC.X.production.obj
-main@B 2D 0 BANK0 1 cstackBANK0 dist/default/production/RGBLLSC.X.production.obj
-main@G 2B 0 BANK0 1 cstackBANK0 dist/default/production/RGBLLSC.X.production.obj
-main@R 29 0 BANK0 1 cstackBANK0 dist/default/production/RGBLLSC.X.production.obj
 __Hstrings 0 0 ABS 0 strings -
-___sp 0 0 STACK 2 stack /tmp/xcX74b6em.obj
+___sp 0 0 STACK 2 stack /tmp/xcXZKEz6I.obj
 _main D4 0 CODE 0 maintext dist/default/production/RGBLLSC.X.production.obj
 btemp 7E 0 ABS 0 - dist/default/production/RGBLLSC.X.production.obj
 ltemp 7E 0 ABS 0 - dist/default/production/RGBLLSC.X.production.obj
-start AE 0 CODE 0 init /tmp/xcX74b6em.obj
+start AE 0 CODE 0 init /tmp/xcXZKEz6I.obj
 ttemp 7E 0 ABS 0 - dist/default/production/RGBLLSC.X.production.obj
 wtemp 7E 0 ABS 0 - dist/default/production/RGBLLSC.X.production.obj
 __CFG_BOREN$OFF 0 0 ABS 0 - dist/default/production/RGBLLSC.X.production.obj
@@ -222,12 +221,12 @@ ttemp1 81 0 ABS 0 - dist/default/production/RGBLLSC.X.production.obj
 ttemp2 84 0 ABS 0 - dist/default/production/RGBLLSC.X.production.obj
 ttemp3 87 0 ABS 0 - dist/default/production/RGBLLSC.X.production.obj
 ttemp4 7F 0 ABS 0 - dist/default/production/RGBLLSC.X.production.obj
-intlevel0 0 0 CODE 0 functab /tmp/xcX74b6em.obj
-intlevel1 0 0 CODE 0 functab /tmp/xcX74b6em.obj
-intlevel2 0 0 CODE 0 functab /tmp/xcX74b6em.obj
-intlevel3 0 0 CODE 0 functab /tmp/xcX74b6em.obj
-intlevel4 0 0 CODE 0 functab /tmp/xcX74b6em.obj
-intlevel5 0 0 CODE 0 functab /tmp/xcX74b6em.obj
+intlevel0 0 0 CODE 0 functab /tmp/xcXZKEz6I.obj
+intlevel1 0 0 CODE 0 functab /tmp/xcXZKEz6I.obj
+intlevel2 0 0 CODE 0 functab /tmp/xcXZKEz6I.obj
+intlevel3 0 0 CODE 0 functab /tmp/xcXZKEz6I.obj
+intlevel4 0 0 CODE 0 functab /tmp/xcXZKEz6I.obj
+intlevel5 0 0 CODE 0 functab /tmp/xcXZKEz6I.obj
 __LbssCOMMON 0 0 ABS 0 bssCOMMON -
 _OSCCONbits 99 0 ABS 0 - dist/default/production/RGBLLSC.X.production.obj
 wtemp0 7E 0 ABS 0 - dist/default/production/RGBLLSC.X.production.obj
@@ -243,8 +242,9 @@ _ANSELA 18C 0 ABS 0 - dist/default/production/RGBLLSC.X.production.obj
 __Lmaintext 0 0 ABS 0 maintext -
 __CFG_FCMEN$OFF 0 0 ABS 0 - dist/default/production/RGBLLSC.X.production.obj
 start_initialization B2 0 CODE 0 cinit dist/default/production/RGBLLSC.X.production.obj
-__pcstackBANK0 29 0 BANK0 1 cstackBANK0 dist/default/production/RGBLLSC.X.production.obj
-___int_sp 0 0 STACK 2 stack /tmp/xcX74b6em.obj
+__pcstackBANK0 24 0 BANK0 1 cstackBANK0 dist/default/production/RGBLLSC.X.production.obj
+_ColorSel 73 0 COMMON 1 bssCOMMON dist/default/production/RGBLLSC.X.production.obj
+___int_sp 0 0 STACK 2 stack /tmp/xcXZKEz6I.obj
 __Hbank0 0 0 ABS 0 bank0 -
 __Hbank1 0 0 ABS 0 bank1 -
 __Hbank2 0 0 ABS 0 bank2 -
@@ -377,14 +377,14 @@ int$flags 7E 0 ABS 0 - dist/default/production/RGBLLSC.X.production.obj
 __HcstackCOMMON 0 0 ABS 0 cstackCOMMON -
 _CKP 10AC 0 ABS 0 - dist/default/production/RGBLLSC.X.production.obj
 __S0 8009 0 ABS 0 - -
-__S1 78 0 ABS 0 - -
+__S1 7C 0 ABS 0 - -
 __S2 0 0 ABS 0 - -
 __S3 0 0 ABS 0 - -
 _isr 8 0 CODE 0 intentry dist/default/production/RGBLLSC.X.production.obj
 __CFG_PLLEN$ON 0 0 ABS 0 - dist/default/production/RGBLLSC.X.production.obj
 __end_of_isr AE 0 CODE 0 intentry dist/default/production/RGBLLSC.X.production.obj
 __Lintentry 8 0 CODE 0 intentry -
-reset_vec 0 0 CODE 0 reset_vec /tmp/xcX74b6em.obj
+reset_vec 0 0 CODE 0 reset_vec /tmp/xcXZKEz6I.obj
 __LbssBANK0 0 0 ABS 0 bssBANK0 -
 _PIE1bits 91 0 ABS 0 - dist/default/production/RGBLLSC.X.production.obj
 __Lbank10 0 0 BANK10 1 bank10 -
@@ -415,9 +415,9 @@ __Lcommon 0 0 ABS 0 common -
 __Lconfig 1000E 0 CONFIG 0 config -
 __CFG_CP$OFF 0 0 ABS 0 - dist/default/production/RGBLLSC.X.production.obj
 __CFG_WDTE$OFF 0 0 ABS 0 - dist/default/production/RGBLLSC.X.production.obj
-_random 27 0 BANK0 1 bssBANK0 dist/default/production/RGBLLSC.X.production.obj
-stackhi 20EF 0 ABS 0 - /tmp/xcX74b6em.obj
-stacklo 200F 0 ABS 0 - /tmp/xcX74b6em.obj
+_random 22 0 BANK0 1 bssBANK0 dist/default/production/RGBLLSC.X.production.obj
+stackhi 20EF 0 ABS 0 - /tmp/xcXZKEz6I.obj
+stacklo 2005 0 ABS 0 - /tmp/xcXZKEz6I.obj
 __Lspace_0 0 0 ABS 0 - -
 __Lspace_1 0 0 ABS 0 - -
 __Lspace_2 0 0 ABS 0 - -
@@ -443,15 +443,15 @@ _SSP1CON1bits 215 0 ABS 0 - dist/default/production/RGBLLSC.X.production.obj
 _SSP1CON2bits 216 0 ABS 0 - dist/default/production/RGBLLSC.X.production.obj
 _SSP1CON3bits 217 0 ABS 0 - dist/default/production/RGBLLSC.X.production.obj
 __CFG_PWRTE$ON 0 0 ABS 0 - dist/default/production/RGBLLSC.X.production.obj
-__pcstackCOMMON 74 0 COMMON 1 cstackCOMMON dist/default/production/RGBLLSC.X.production.obj
+__pcstackCOMMON 79 0 COMMON 1 cstackCOMMON dist/default/production/RGBLLSC.X.production.obj
 _SSP1ADD 212 0 ABS 0 - dist/default/production/RGBLLSC.X.production.obj
 _SSP1BUF 211 0 ABS 0 - dist/default/production/RGBLLSC.X.production.obj
 __Hend_init B2 0 CODE 0 end_init -
-__end_of_main 1EE 0 CODE 0 maintext dist/default/production/RGBLLSC.X.production.obj
+__end_of_main 1E0 0 CODE 0 maintext dist/default/production/RGBLLSC.X.production.obj
 _TRISA 8C 0 ABS 0 - dist/default/production/RGBLLSC.X.production.obj
 __Hram 0 0 ABS 0 ram -
 __Lram 0 0 ABS 0 ram -
-_color 20 0 BANK0 1 bssBANK0 dist/default/production/RGBLLSC.X.production.obj
+_color 70 0 COMMON 1 bssCOMMON dist/default/production/RGBLLSC.X.production.obj
 __CFG_CPD$OFF 0 0 ABS 0 - dist/default/production/RGBLLSC.X.production.obj
 _SSPSTATbits 214 0 ABS 0 - dist/default/production/RGBLLSC.X.production.obj
 __pintentry 8 0 CODE 0 intentry dist/default/production/RGBLLSC.X.production.obj
@@ -483,8 +483,8 @@ __pbssBANK0 20 0 BANK0 1 bssBANK0 dist/default/production/RGBLLSC.X.production.o
 # and size are in units of delta. The file address is in units of bytes.
 # All other numeric quantities are in decimal.
 %SEGMENTS
-intentry 0 4 8 F3 2
+intentry 0 4 8 EC 2
 reset_vec 0 0 0 2 2
-bssBANK0 1 20 20 F 1
-bssCOMMON 1 70 70 8 1
+bssBANK0 1 20 20 5 1
+bssCOMMON 1 70 70 C 1
 config 0 8007 1000E 2 2
