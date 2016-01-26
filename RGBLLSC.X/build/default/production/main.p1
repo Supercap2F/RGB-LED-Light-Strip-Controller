@@ -60,10 +60,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S62 . . ]
 "1039
 [v _PIE1bits `VS62 ~T0 @X0 0 e@145 ]
-"463
-[v _PIR1 `Vuc ~T0 @X0 0 e@17 ]
-"524
-[v _PIR2 `Vuc ~T0 @X0 0 e@18 ]
 "343
 [s S27 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S27 . IOCIF INTF TMR0IF IOCIE INTE TMR0IE PEIE GIE ]
@@ -91,12 +87,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S31 . . ]
 "480
 [v _PIR1bits `VS31 ~T0 @X0 0 e@17 ]
-"5252
-[v _SSP1IF `Vb ~T0 @X0 0 e@139 ]
-"4884
-[v _CKP `Vb ~T0 @X0 0 e@4268 ]
 "2970
 [v _SSP1BUF `Vuc ~T0 @X0 0 e@529 ]
+"4884
+[v _CKP `Vb ~T0 @X0 0 e@4268 ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
@@ -2160,271 +2154,255 @@ Version 3.2 HI-TECH Software Intermediate Code
 "25
 [p x PLLEN=ON ]
 "41
-[v _x `i ~T0 @X0 1 e ]
+[v _x `i ~T0 @X0 1 s ]
 [i _x
 -> 0 `i
 ]
-[; ;main.c: 41: int x=0;
+[; ;main.c: 41: int static x=0;
 "42
-[v _color `uc ~T0 @X0 -> 3 `i e ]
-[; ;main.c: 42: unsigned char color[3];
-"47
+[v _color `uc ~T0 @X0 -> 3 `i s ]
+[i _color
+:U ..
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+..
+]
+[; ;main.c: 42: unsigned char static color[3] ={0,0,0};
+"44
+[v _random `i ~T0 @X0 1 e ]
+[; ;main.c: 44: int random;
+"48
 [v _main `(v ~T0 @X0 1 ef ]
 {
-[; ;main.c: 47: void main(void) {
+[; ;main.c: 48: void main(void) {
 [e :U _main ]
 [f ]
-"51
+"52
 [v _R `i ~T0 @X0 1 a ]
-[; ;main.c: 51: int R=0; int G=0; int B=0;
+[; ;main.c: 52: int R=0; int G=0; int B=0;
 [e = _R -> 0 `i ]
 [v _G `i ~T0 @X0 1 a ]
 [e = _G -> 0 `i ]
 [v _B `i ~T0 @X0 1 a ]
 [e = _B -> 0 `i ]
-"52
+"53
 [v _Rx `i ~T0 @X0 1 a ]
-[; ;main.c: 52: int Rx=0; int Gx=0; int Bx=0;
+[; ;main.c: 53: int Rx=0; int Gx=0; int Bx=0;
 [e = _Rx -> 0 `i ]
 [v _Gx `i ~T0 @X0 1 a ]
 [e = _Gx -> 0 `i ]
 [v _Bx `i ~T0 @X0 1 a ]
 [e = _Bx -> 0 `i ]
-[; ;main.c: 57: OSCCONbits.SCS=0;
-"57
-[e = . . _OSCCONbits 1 0 -> -> 0 `i `uc ]
-[; ;main.c: 58: OSCCONbits.IRCF=0b1110;
+[; ;main.c: 58: OSCCONbits.SCS=0;
 "58
+[e = . . _OSCCONbits 1 0 -> -> 0 `i `uc ]
+[; ;main.c: 59: OSCCONbits.IRCF=0b1110;
+"59
 [e = . . _OSCCONbits 1 2 -> -> 14 `i `uc ]
-[; ;main.c: 66: TRISA=0b00001110;
-"66
-[e = _TRISA -> -> 14 `i `uc ]
-[; ;main.c: 67: ANSELA=0b00000000;
+[; ;main.c: 67: TRISA=0b00001110;
 "67
+[e = _TRISA -> -> 14 `i `uc ]
+[; ;main.c: 68: ANSELA=0b00000000;
+"68
 [e = _ANSELA -> -> 0 `i `uc ]
-[; ;main.c: 72: SSPSTATbits.CKE=1;
-"72
-[e = . . _SSPSTATbits 0 6 -> -> 1 `i `uc ]
-[; ;main.c: 73: SSP1CON1bits.SSPM=0b0110;
+[; ;main.c: 73: SSPSTATbits.CKE=1;
 "73
-[e = . . _SSP1CON1bits 1 0 -> -> 6 `i `uc ]
-[; ;main.c: 74: SSP1CON2bits.GCEN=1;
+[e = . . _SSPSTATbits 0 6 -> -> 1 `i `uc ]
+[; ;main.c: 74: SSP1CON1bits.SSPM=0b0110;
 "74
-[e = . . _SSP1CON2bits 0 7 -> -> 1 `i `uc ]
-[; ;main.c: 75: SSP1CON2bits.SEN=1;
+[e = . . _SSP1CON1bits 1 0 -> -> 6 `i `uc ]
+[; ;main.c: 75: SSP1CON2bits.GCEN=1;
 "75
-[e = . . _SSP1CON2bits 0 0 -> -> 1 `i `uc ]
-[; ;main.c: 76: SSP1CON3bits.PCIE=0;
+[e = . . _SSP1CON2bits 0 7 -> -> 1 `i `uc ]
+[; ;main.c: 76: SSP1CON2bits.SEN=1;
 "76
-[e = . . _SSP1CON3bits 0 6 -> -> 0 `i `uc ]
-[; ;main.c: 77: SSP1CON3bits.BOEN=0;
+[e = . . _SSP1CON2bits 0 0 -> -> 1 `i `uc ]
+[; ;main.c: 77: SSP1CON3bits.PCIE=0;
 "77
-[e = . . _SSP1CON3bits 0 4 -> -> 0 `i `uc ]
-[; ;main.c: 78: SSP1ADD=0xA2;
+[e = . . _SSP1CON3bits 0 6 -> -> 0 `i `uc ]
+[; ;main.c: 78: SSP1CON3bits.BOEN=0;
 "78
-[e = _SSP1ADD -> -> 162 `i `uc ]
-[; ;main.c: 83: PIE1bits.SSP1IE=1;
-"83
-[e = . . _PIE1bits 0 3 -> -> 1 `i `uc ]
-[; ;main.c: 84: PIR1=0x00;
+[e = . . _SSP1CON3bits 0 4 -> -> 0 `i `uc ]
+[; ;main.c: 79: SSP1ADD=0x20;
+"79
+[e = _SSP1ADD -> -> 32 `i `uc ]
+[; ;main.c: 84: PIE1bits.SSP1IE=1;
 "84
-[e = _PIR1 -> -> 0 `i `uc ]
-[; ;main.c: 85: PIR2=0x00;
-"85
-[e = _PIR2 -> -> 0 `i `uc ]
-[; ;main.c: 86: INTCONbits.PEIE=1;
-"86
-[e = . . _INTCONbits 0 6 -> -> 1 `i `uc ]
-[; ;main.c: 88: SSP1CON1bits.SSPEN=1;
+[e = . . _PIE1bits 0 3 -> -> 1 `i `uc ]
+[; ;main.c: 87: INTCONbits.GIE=1;
+"87
+[e = . . _INTCONbits 0 7 -> -> 1 `i `uc ]
+[; ;main.c: 88: INTCONbits.PEIE=1;
 "88
+[e = . . _INTCONbits 0 6 -> -> 1 `i `uc ]
+[; ;main.c: 90: SSP1CON1bits.SSPEN=1;
+"90
 [e = . . _SSP1CON1bits 0 5 -> -> 1 `i `uc ]
-[; ;main.c: 94: PORTAbits.RA0=1; PORTAbits.RA5=1; PORTAbits.RA4=1;
-"94
+[; ;main.c: 96: PORTAbits.RA0=1; PORTAbits.RA5=1; PORTAbits.RA4=1;
+"96
 [e = . . _PORTAbits 0 0 -> -> 1 `i `uc ]
 [e = . . _PORTAbits 0 5 -> -> 1 `i `uc ]
 [e = . . _PORTAbits 0 4 -> -> 1 `i `uc ]
-[; ;main.c: 95: while(1) {
-"95
+[; ;main.c: 97: while(1) {
+"97
 [e :U 265 ]
 {
-[; ;main.c: 96: R=color[0];
-"96
-[e = _R -> *U + &U _color * -> -> -> 0 `i `ui `ux -> -> # *U &U _color `ui `ux `i ]
-[; ;main.c: 97: G=color[1];
-"97
-[e = _G -> *U + &U _color * -> -> -> 1 `i `ui `ux -> -> # *U &U _color `ui `ux `i ]
-[; ;main.c: 98: B=color[2];
-"98
-[e = _B -> *U + &U _color * -> -> -> 2 `i `ui `ux -> -> # *U &U _color `ui `ux `i ]
-[; ;main.c: 99: if(Rx<R)
-"99
-[e $ ! < _Rx _R 267  ]
-[; ;main.c: 100: Rx++;
-"100
+[; ;main.c: 101: if(Rx<color[0])
+"101
+[e $ ! < _Rx -> *U + &U _color * -> -> -> 0 `i `ui `ux -> -> # *U &U _color `ui `ux `i 267  ]
+[; ;main.c: 102: Rx++;
+"102
 [e ++ _Rx -> 1 `i ]
 [e $U 268  ]
-"101
-[e :U 267 ]
-[; ;main.c: 101: else {
-{
-[; ;main.c: 102: PORTAbits.RA0=~PORTAbits.RA0; R=254-R; Rx=0;
-"102
-[e = . . _PORTAbits 0 0 -> ~ -> . . _PORTAbits 0 0 `i `uc ]
-[e = _R - -> 254 `i _R ]
-[e = _Rx -> 0 `i ]
 "103
+[e :U 267 ]
+[; ;main.c: 103: else {
+{
+[; ;main.c: 104: PORTAbits.RA0=~PORTAbits.RA0; color[0]=254-color[0]; Rx=0;
+"104
+[e = . . _PORTAbits 0 0 -> ~ -> . . _PORTAbits 0 0 `i `uc ]
+[e = *U + &U _color * -> -> -> 0 `i `ui `ux -> -> # *U &U _color `ui `ux -> - -> 254 `i -> *U + &U _color * -> -> -> 0 `i `ui `ux -> -> # *U &U _color `ui `ux `i `uc ]
+[e = _Rx -> 0 `i ]
+"105
 }
 [e :U 268 ]
-[; ;main.c: 103: }
-[; ;main.c: 105: if(Gx<G)
-"105
-[e $ ! < _Gx _G 269  ]
-[; ;main.c: 106: Gx++;
-"106
+[; ;main.c: 105: }
+[; ;main.c: 107: if(Gx<color[1])
+"107
+[e $ ! < _Gx -> *U + &U _color * -> -> -> 1 `i `ui `ux -> -> # *U &U _color `ui `ux `i 269  ]
+[; ;main.c: 108: Gx++;
+"108
 [e ++ _Gx -> 1 `i ]
 [e $U 270  ]
-"107
-[e :U 269 ]
-[; ;main.c: 107: else {
-{
-[; ;main.c: 108: PORTAbits.RA4=~PORTAbits.RA4; G=254-G; Gx=0;
-"108
-[e = . . _PORTAbits 0 4 -> ~ -> . . _PORTAbits 0 4 `i `uc ]
-[e = _G - -> 254 `i _G ]
-[e = _Gx -> 0 `i ]
 "109
+[e :U 269 ]
+[; ;main.c: 109: else {
+{
+[; ;main.c: 110: PORTAbits.RA4=~PORTAbits.RA4; color[1]=254-color[1]; Gx=0;
+"110
+[e = . . _PORTAbits 0 4 -> ~ -> . . _PORTAbits 0 4 `i `uc ]
+[e = *U + &U _color * -> -> -> 1 `i `ui `ux -> -> # *U &U _color `ui `ux -> - -> 254 `i -> *U + &U _color * -> -> -> 1 `i `ui `ux -> -> # *U &U _color `ui `ux `i `uc ]
+[e = _Gx -> 0 `i ]
+"111
 }
 [e :U 270 ]
-[; ;main.c: 109: }
-[; ;main.c: 111: if(Bx<B)
-"111
-[e $ ! < _Bx _B 271  ]
-[; ;main.c: 112: Bx++;
-"112
+[; ;main.c: 111: }
+[; ;main.c: 113: if(Bx<color[2])
+"113
+[e $ ! < _Bx -> *U + &U _color * -> -> -> 2 `i `ui `ux -> -> # *U &U _color `ui `ux `i 271  ]
+[; ;main.c: 114: Bx++;
+"114
 [e ++ _Bx -> 1 `i ]
 [e $U 272  ]
-"113
-[e :U 271 ]
-[; ;main.c: 113: else {
-{
-[; ;main.c: 114: PORTAbits.RA5=~PORTAbits.RA5; B=254-B; Bx=0;
-"114
-[e = . . _PORTAbits 0 5 -> ~ -> . . _PORTAbits 0 5 `i `uc ]
-[e = _B - -> 254 `i _B ]
-[e = _Bx -> 0 `i ]
 "115
+[e :U 271 ]
+[; ;main.c: 115: else {
+{
+[; ;main.c: 116: PORTAbits.RA5=~PORTAbits.RA5; color[2]=254-color[2]; Bx=0;
+"116
+[e = . . _PORTAbits 0 5 -> ~ -> . . _PORTAbits 0 5 `i `uc ]
+[e = *U + &U _color * -> -> -> 2 `i `ui `ux -> -> # *U &U _color `ui `ux -> - -> 254 `i -> *U + &U _color * -> -> -> 2 `i `ui `ux -> -> # *U &U _color `ui `ux `i `uc ]
+[e = _Bx -> 0 `i ]
+"117
 }
 [e :U 272 ]
-"116
+"118
 }
 [e :U 264 ]
-"95
+"97
 [e $U 265  ]
 [e :U 266 ]
-[; ;main.c: 115: }
-[; ;main.c: 116: }
-[; ;main.c: 118: while(1);
-"118
+[; ;main.c: 117: }
+[; ;main.c: 118: }
+[; ;main.c: 120: while(1);
+"120
 [e :U 274 ]
 [e :U 273 ]
 [e $U 274  ]
 [e :U 275 ]
-[; ;main.c: 119: }
-"119
+[; ;main.c: 121: }
+"121
 [e :UE 263 ]
 }
-[v F2078 `(v ~T0 @X0 1 tf ]
-"124
-[v _isr `IF2078 ~T0 @X0 1 e ]
+[v F2079 `(v ~T0 @X0 1 tf ]
+"126
+[v _isr `IF2079 ~T0 @X0 1 e ]
 {
-[; ;main.c: 124: void interrupt isr(void) {
+[; ;main.c: 126: void interrupt isr(void) {
 [e :U _isr ]
 [f ]
-[; ;main.c: 125: if(PIR1bits.SSP1IF==1) {
-"125
+[; ;main.c: 127: if(PIR1bits.SSP1IF==1) {
+"127
 [e $ ! == -> . . _PIR1bits 0 3 `i -> 1 `i 277  ]
 {
-[; ;main.c: 126: SSP1IF=0;
-"126
-[e = _SSP1IF -> -> 0 `i `b ]
-[; ;main.c: 127: while(SSPSTATbits.P==0){
-"127
-[e $U 278  ]
-[e :U 279 ]
-{
-[; ;main.c: 128: if(SSPSTATbits.D_nA==0){
+[; ;main.c: 128: PIR1bits.SSP1IF=0;
 "128
-[e $ ! == -> . . _SSPSTATbits 0 5 `i -> 0 `i 281  ]
-{
-[; ;main.c: 129: CKP=1;
-"129
-[e = _CKP -> -> 1 `i `b ]
-[; ;main.c: 130: while(SSP1IF==0);
+[e = . . _PIR1bits 0 3 -> -> 0 `i `uc ]
+[; ;main.c: 130: if(SSPSTATbits.D_nA==0){
 "130
-[e $U 282  ]
-[e :U 283 ]
-[e :U 282 ]
-[e $ == -> _SSP1IF `i -> 0 `i 283  ]
-[e :U 284 ]
-[; ;main.c: 131: SSP1IF=0;
-"131
-[e = _SSP1IF -> -> 0 `i `b ]
-"132
-}
-[e :U 281 ]
-[; ;main.c: 132: }
-[; ;main.c: 133: if(SSPSTATbits.D_nA==1) {
-"133
-[e $ ! == -> . . _SSPSTATbits 0 5 `i -> 1 `i 285  ]
+[e $ ! == -> . . _SSPSTATbits 0 5 `i -> 0 `i 278  ]
 {
-[; ;main.c: 134: color[x]=SSP1BUF;
-"134
-[e = *U + &U _color * -> -> _x `ui `ux -> -> # *U &U _color `ui `ux _SSP1BUF ]
-[; ;main.c: 135: CKP=1;
-"135
+[; ;main.c: 131: random=SSP1BUF;
+"131
+[e = _random -> _SSP1BUF `i ]
+[; ;main.c: 132: CKP=1;
+"132
 [e = _CKP -> -> 1 `i `b ]
-[; ;main.c: 136: x++;
-"136
-[e ++ _x -> 1 `i ]
-[; ;main.c: 137: if(x==3)
+[; ;main.c: 134: SSP1CON1bits.SSPOV=0;
+"134
+[e = . . _SSP1CON1bits 0 6 -> -> 0 `i `uc ]
+[; ;main.c: 135: SSP1CON1bits.WCOL=0;
+"135
+[e = . . _SSP1CON1bits 0 7 -> -> 0 `i `uc ]
+[; ;main.c: 137: return;
 "137
-[e $ ! == _x -> 3 `i 286  ]
-[; ;main.c: 138: x=0;
-"138
-[e = _x -> 0 `i ]
-[e :U 286 ]
-[; ;main.c: 139: while(SSP1IF==0);
-"139
-[e $U 287  ]
-[e :U 288 ]
-[e :U 287 ]
-[e $ == -> _SSP1IF `i -> 0 `i 288  ]
-[e :U 289 ]
-[; ;main.c: 140: SSP1IF=0;
-"140
-[e = _SSP1IF -> -> 0 `i `b ]
+[e $UE 276  ]
 "141
 }
-[e :U 285 ]
-"142
-}
 [e :U 278 ]
-"127
-[e $ == -> . . _SSPSTATbits 0 4 `i -> 0 `i 279  ]
-[e :U 280 ]
+[; ;main.c: 141: }
+[; ;main.c: 142: if(SSPSTATbits.D_nA==1) {
+"142
+[e $ ! == -> . . _SSPSTATbits 0 5 `i -> 1 `i 279  ]
+{
+[; ;main.c: 143: color[x]=SSP1BUF;
 "143
+[e = *U + &U _color * -> -> _x `ui `ux -> -> # *U &U _color `ui `ux _SSP1BUF ]
+[; ;main.c: 144: CKP=1;
+"144
+[e = _CKP -> -> 1 `i `b ]
+[; ;main.c: 145: x++;
+"145
+[e ++ _x -> 1 `i ]
+[; ;main.c: 146: if(x==3)
+"146
+[e $ ! == _x -> 3 `i 280  ]
+[; ;main.c: 147: x=0;
+"147
+[e = _x -> 0 `i ]
+[e :U 280 ]
+[; ;main.c: 149: SSP1CON1bits.SSPOV=0;
+"149
+[e = . . _SSP1CON1bits 0 6 -> -> 0 `i `uc ]
+[; ;main.c: 150: SSP1CON1bits.WCOL=0;
+"150
+[e = . . _SSP1CON1bits 0 7 -> -> 0 `i `uc ]
+[; ;main.c: 152: return;
+"152
+[e $UE 276  ]
+"156
+}
+[e :U 279 ]
+"158
 }
 [e :U 277 ]
-[; ;main.c: 141: }
-[; ;main.c: 142: }
-[; ;main.c: 143: }
-[; ;main.c: 145: x=0;
-"145
-[e = _x -> 0 `i ]
-[; ;main.c: 146: return;
-"146
+[; ;main.c: 156: }
+[; ;main.c: 158: }
+[; ;main.c: 160: return;
+"160
 [e $UE 276  ]
-[; ;main.c: 147: }
-"147
+[; ;main.c: 161: }
+"161
 [e :UE 276 ]
 }

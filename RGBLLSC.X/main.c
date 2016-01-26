@@ -33,14 +33,15 @@
 #define GRN PORTAbits.RA4
 #define BLU PORTAbits.RA5
 
-#define I2CADDRESS 0xA2
+#define I2CADDRESS 0x20
 
 /***********************************************
  * global variables                            *
  ***********************************************/
-int x=0;
-unsigned char color[3]; 
+int static x=0;
+unsigned char static color[3] ={0,0,0}; 
 
+int random;
 /***********************************************
  * main function                               *
  ***********************************************/
@@ -81,8 +82,9 @@ void main(void) {
      * interrupt configuration                     *
      ***********************************************/
     PIE1bits.SSP1IE=1; // enables the MSSP interrupt 
-    PIR1=0x00;         // clear interrupt flags
-    PIR2=0x00;         //
+    //PIR1=0x00;         // clear interrupt flags
+    //PIR2=0x00;         //
+    INTCONbits.GIE=1;
     INTCONbits.PEIE=1; // enable peripheral interrupts
     
     SSP1CON1bits.SSPEN=1; // enable the MSSP module 
@@ -93,25 +95,22 @@ void main(void) {
      ***********************************************/
     RED=1; BLU=1; GRN=1;             // start the LED loop with LEDs on 
     while(1) {                       // loop forever 
-        R=color[0];
-        G=color[1];
-        B=color[2];
-        if(Rx<R)                     // if the time for the RED LED to be on/off has not ended 
+        if(Rx<color[0])                     // if the time for the RED LED to be on/off has not ended 
             Rx++;                    //     increment the time 
         else {                       // else if it has 
-            RED=~RED; R=254-R; Rx=0; //     clear the time and flip the LED state 
+            RED=~RED; color[0]=254-color[0]; Rx=0; //     clear the time and flip the LED state 
         }                            //
         
-        if(Gx<G)                     // if the time for the GREEN LED to be on/off has not ended 
+        if(Gx<color[1])                     // if the time for the GREEN LED to be on/off has not ended 
             Gx++;                    //     increment the time
         else {                       // else if it has
-            GRN=~GRN; G=254-G; Gx=0; //     clear the time and flip the LED state
+            GRN=~GRN; color[1]=254-color[1]; Gx=0; //     clear the time and flip the LED state
         }                            // 
         
-        if(Bx<B)                     // if the time for the BLUE LED to be on/off has not ended
+        if(Bx<color[2])                     // if the time for the BLUE LED to be on/off has not ended
             Bx++;                    //     increment the time
         else {                       // else if it has
-            BLU=~BLU; B=254-B; Bx=0; //     clear the time and flip the LED state
+            BLU=~BLU; color[2]=254-color[2]; Bx=0; //     clear the time and flip the LED state
         }                            //
     }                                 
     
@@ -123,12 +122,19 @@ void main(void) {
  ***********************************************/
 void interrupt isr(void) {
     if(PIR1bits.SSP1IF==1) {
-        SSP1IF=0; 
-        while(SSPSTATbits.P==0){ // wait for a stop bit 
+        PIR1bits.SSP1IF=0; 
+        //while(SSPSTATbits.P==0){ // wait for a stop bit 
             if(SSPSTATbits.D_nA==0){ // if the last byte received was a address 
-                CKP=1;               // release SCL line 
-                while(SSP1IF==0);    // wait for next byte
-                SSP1IF=0;            // clear the flag
+                random=SSP1BUF; // dummy read
+                CKP=1; // release SCL line
+                
+                SSP1CON1bits.SSPOV=0;
+                SSP1CON1bits.WCOL=0;
+                
+                return;
+                
+                //while(PIR1bits.SSP1IF==0);    // wait for next byte
+                //PIR1bits.SSP1IF=0;            // clear the flag
             }
             if(SSPSTATbits.D_nA==1) { // if the last byte received was data
                 color[x]=SSP1BUF;
@@ -136,12 +142,17 @@ void interrupt isr(void) {
                 x++;
                 if(x==3) 
                     x=0;
-                while(SSP1IF==0); // wait for next byte 
-                SSP1IF=0;         // clear the flag
+                
+                SSP1CON1bits.SSPOV=0;
+                SSP1CON1bits.WCOL=0;
+                
+                return;
+                
+                //while(PIR1bits.SSP1IF==0); // wait for next byte 
+               // PIR1bits.SSP1IF=0;         // clear the flag
             } 
-        }   
+        //} 
     }
     
-    x=0;
     return;  
 }
