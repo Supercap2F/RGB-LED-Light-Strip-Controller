@@ -11,9 +11,9 @@
 [v _eecpymem eecpymem `(v  1 e 0 0 ]
 "24
 [v _memcpyee memcpyee `(v  1 e 0 0 ]
-"48 /home/supercap2f/Documents/Electronics/Projects/RGBLLSC/RGBLLSC.X/main.c
+"49 /home/supercap2f/Documents/Electronics/Projects/RGBLLSC/RGBLLSC.X/main.c
 [v _main main `(v  1 e 0 0 ]
-"126
+"124
 [v _isr isr `II(v  1 e 0 0 ]
 [s S162 . 1 `uc 1 IOCIF 1 0 :1:0 
 `uc 1 INTF 1 0 :1:1 
@@ -146,23 +146,23 @@
 [v _x x `i  1 s 2 x ]
 "42
 [v _color color `[3]uc  1 s 3 color ]
-"44
+"43
+[v _Rx Rx `i  1 e 2 0 ]
+[v _Gx Gx `i  1 e 2 0 ]
+[v _Bx Bx `i  1 e 2 0 ]
+"45
 [v _random random `i  1 e 2 0 ]
-"48
+"49
 [v _main main `(v  1 e 0 0 ]
 {
 "53
-[v main@Bx Bx `i  1 a 2 10 ]
-[v main@Gx Gx `i  1 a 2 8 ]
-[v main@Rx Rx `i  1 a 2 6 ]
-"52
 [v main@B B `i  1 a 2 4 ]
 [v main@G G `i  1 a 2 2 ]
 [v main@R R `i  1 a 2 0 ]
-"121
+"119
 } 0
-"126
+"124
 [v _isr isr `II(v  1 e 0 0 ]
 {
-"161
+"175
 } 0

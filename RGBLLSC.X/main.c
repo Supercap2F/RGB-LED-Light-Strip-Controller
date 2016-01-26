@@ -40,6 +40,7 @@
  ***********************************************/
 int static x=0;
 unsigned char static color[3] ={0,0,0}; 
+int Rx=0; int Gx=0; int Bx=0;
 
 int random;
 /***********************************************
@@ -50,7 +51,7 @@ void main(void) {
      * variable definitions                        *
      ***********************************************/
     int R=0;  int G=0;  int B=0; 
-    int Rx=0; int Gx=0; int Bx=0;
+    //int Rx=0; int Gx=0; int Bx=0;
     
     /***********************************************
      * oscillator configuration                    *
@@ -98,19 +99,19 @@ void main(void) {
         if(Rx<color[0])                     // if the time for the RED LED to be on/off has not ended 
             Rx++;                    //     increment the time 
         else {                       // else if it has 
-            RED=~RED; color[0]=254-color[0]; Rx=0; //     clear the time and flip the LED state 
+            RED=~RED; color[0]=~color[0]; Rx=0; //     clear the time and flip the LED state 
         }                            //
         
         if(Gx<color[1])                     // if the time for the GREEN LED to be on/off has not ended 
             Gx++;                    //     increment the time
         else {                       // else if it has
-            GRN=~GRN; color[1]=254-color[1]; Gx=0; //     clear the time and flip the LED state
+            GRN=~GRN; color[1]=~color[1]; Gx=0; //     clear the time and flip the LED state
         }                            // 
         
         if(Bx<color[2])                     // if the time for the BLUE LED to be on/off has not ended
             Bx++;                    //     increment the time
         else {                       // else if it has
-            BLU=~BLU; color[2]=254-color[2]; Bx=0; //     clear the time and flip the LED state
+            BLU=~BLU; color[2]=~color[2]; Bx=0; //     clear the time and flip the LED state
         }                            //
     }                                 
     
@@ -138,10 +139,26 @@ void interrupt isr(void) {
             }
             if(SSPSTATbits.D_nA==1) { // if the last byte received was data
                 color[x]=SSP1BUF;
-                CKP=1;  // release the SCL line 
+                //CKP=1;  // release the SCL line 
+                switch(x) {
+                    case 0:
+                        RED=0;
+                        break;
+                    case 1:
+                        GRN=0;
+                        break;
+                    case 2:
+                        BLU=0;
+                        break;
+                }
                 x++;
                 if(x==3) 
                     x=0;
+                Rx=0;
+                Gx=0;
+                Bx=0;
+                
+                CKP=1;  // release the SCL line
                 
                 SSP1CON1bits.SSPOV=0;
                 SSP1CON1bits.WCOL=0;

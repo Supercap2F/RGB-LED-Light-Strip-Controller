@@ -1,7 +1,7 @@
 
 
 Microchip Technology PIC LITE Macro Assembler V1.35 build -356382666 
-                                                                                               Tue Jan 26 20:31:38 2016
+                                                                                               Tue Jan 26 21:45:40 2016
 
 Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080246
      1                           	processor	12F1840
@@ -150,529 +150,598 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
    144                           ; #config settings
    145  0000                     
    146                           	psect	cinit
-   147  0037                     start_initialization:	
-   148  0037                     __initialization:	
+   147  0059                     start_initialization:	
+   148  0059                     __initialization:	
    149                           
    150                           ; Clear objects allocated to COMMON
-   151  0037  01F0               	clrf	__pbssCOMMON& (0+127)
-   152  0038  01F1               	clrf	(__pbssCOMMON+1)& (0+127)
-   153  0039  01F2               	clrf	(__pbssCOMMON+2)& (0+127)
-   154  003A  01F3               	clrf	(__pbssCOMMON+3)& (0+127)
+   151  0059  01F0               	clrf	__pbssCOMMON& (0+127)
+   152  005A  01F1               	clrf	(__pbssCOMMON+1)& (0+127)
+   153  005B  01F2               	clrf	(__pbssCOMMON+2)& (0+127)
+   154  005C  01F3               	clrf	(__pbssCOMMON+3)& (0+127)
    155                           
    156                           ; Clear objects allocated to BANK0
-   157  003B  01AC               	clrf	__pbssBANK0& (0+127)
-   158  003C  01AD               	clrf	(__pbssBANK0+1)& (0+127)
-   159  003D  01AE               	clrf	(__pbssBANK0+2)& (0+127)
-   160  003E                     end_of_initialization:	
-   161                           ;End of C runtime variable initialization code
-   162                           
-   163  003E                     __end_of__initialization:	
-   164  003E  107E               	bcf	int$flags,0	;clear compiler interrupt flag (level 1)
-   165  003F  0020               	movlb	0
-   166  0040  3180  2842         	ljmp	_main	;jump to C main() function
-   167                           
-   168                           	psect	bssCOMMON
-   169  0070                     __pbssCOMMON:	
-   170  0070                     _random:	
-   171  0070                     	ds	2
-   172  0072                     _x:	
-   173  0072                     	ds	2
-   174                           
-   175                           	psect	bssBANK0
-   176  002C                     __pbssBANK0:	
-   177  002C                     _color:	
-   178  002C                     	ds	3
-   179                           
-   180                           	psect	cstackCOMMON
-   181  0074                     __pcstackCOMMON:	
-   182  0074                     ?_main:	
-   183  0074                     ?_isr:	
-   184                           ; 0 bytes @ 0x0
-   185                           
-   186  0074                     ??_isr:	
-   187                           ; 0 bytes @ 0x0
-   188                           
-   189                           
-   190                           ; 0 bytes @ 0x0
-   191  0074                     	ds	3
-   192  0077                     ??_main:	
-   193                           
-   194                           ; 0 bytes @ 0x3
-   195  0077                     	ds	1
-   196                           
-   197                           	psect	cstackBANK0
-   198  0020                     __pcstackBANK0:	
-   199  0020                     main@R:	
+   157  005D  01A0               	clrf	__pbssBANK0& (0+127)
+   158  005E  01A1               	clrf	(__pbssBANK0+1)& (0+127)
+   159  005F  01A2               	clrf	(__pbssBANK0+2)& (0+127)
+   160  0060  01A3               	clrf	(__pbssBANK0+3)& (0+127)
+   161  0061  01A4               	clrf	(__pbssBANK0+4)& (0+127)
+   162  0062  01A5               	clrf	(__pbssBANK0+5)& (0+127)
+   163  0063  01A6               	clrf	(__pbssBANK0+6)& (0+127)
+   164  0064  01A7               	clrf	(__pbssBANK0+7)& (0+127)
+   165  0065  01A8               	clrf	(__pbssBANK0+8)& (0+127)
+   166  0066                     end_of_initialization:	
+   167                           ;End of C runtime variable initialization code
+   168                           
+   169  0066                     __end_of__initialization:	
+   170  0066  107E               	bcf	int$flags,0	;clear compiler interrupt flag (level 1)
+   171  0067  0020               	movlb	0
+   172  0068  3180  286A         	ljmp	_main	;jump to C main() function
+   173                           
+   174                           	psect	bssCOMMON
+   175  0070                     __pbssCOMMON:	
+   176  0070                     _Rx:	
+   177  0070                     	ds	2
+   178  0072                     _x:	
+   179  0072                     	ds	2
+   180                           
+   181                           	psect	bssBANK0
+   182  0020                     __pbssBANK0:	
+   183  0020                     _color:	
+   184  0020                     	ds	3
+   185  0023                     _Bx:	
+   186  0023                     	ds	2
+   187  0025                     _Gx:	
+   188  0025                     	ds	2
+   189  0027                     _random:	
+   190  0027                     	ds	2
+   191                           
+   192                           	psect	cstackCOMMON
+   193  0074                     __pcstackCOMMON:	
+   194  0074                     ?_main:	
+   195  0074                     ?_isr:	
+   196                           ; 0 bytes @ 0x0
+   197                           
+   198  0074                     ??_isr:	
+   199                           ; 0 bytes @ 0x0
    200                           
-   201                           ; 2 bytes @ 0x0
-   202  0020                     	ds	2
-   203  0022                     main@G:	
-   204                           
-   205                           ; 2 bytes @ 0x2
-   206  0022                     	ds	2
-   207  0024                     main@B:	
+   201                           
+   202                           ; 0 bytes @ 0x0
+   203  0074                     	ds	3
+   204  0077                     ??_main:	
+   205                           
+   206                           ; 0 bytes @ 0x3
+   207  0077                     	ds	1
    208                           
-   209                           ; 2 bytes @ 0x4
-   210  0024                     	ds	2
-   211  0026                     main@Rx:	
+   209                           	psect	cstackBANK0
+   210  0029                     __pcstackBANK0:	
+   211  0029                     main@R:	
    212                           
-   213                           ; 2 bytes @ 0x6
-   214  0026                     	ds	2
-   215  0028                     main@Gx:	
+   213                           ; 2 bytes @ 0x0
+   214  0029                     	ds	2
+   215  002B                     main@G:	
    216                           
-   217                           ; 2 bytes @ 0x8
-   218  0028                     	ds	2
-   219  002A                     main@Bx:	
+   217                           ; 2 bytes @ 0x2
+   218  002B                     	ds	2
+   219  002D                     main@B:	
    220                           
-   221                           ; 2 bytes @ 0xA
-   222  002A                     	ds	2
+   221                           ; 2 bytes @ 0x4
+   222  002D                     	ds	2
    223                           
    224                           	psect	maintext
-   225  0042                     __pmaintext:	
+   225  006A                     __pmaintext:	
    226 ;;
    227 ;;Main: autosize = 0, tempsize = 1, incstack = 0, save=0
    228 ;;
    229 ;; *************** function _main *****************
    230 ;; Defined at:
-   231 ;;		line 48 in file "main.c"
+   231 ;;		line 49 in file "main.c"
    232 ;; Parameters:    Size  Location     Type
    233 ;;		None
    234 ;; Auto vars:     Size  Location     Type
-   235 ;;  Bx              2   10[BANK0 ] int 
-   236 ;;  Gx              2    8[BANK0 ] int 
-   237 ;;  Rx              2    6[BANK0 ] int 
-   238 ;;  B               2    4[BANK0 ] int 
-   239 ;;  G               2    2[BANK0 ] int 
-   240 ;;  R               2    0[BANK0 ] int 
-   241 ;; Return value:  Size  Location     Type
-   242 ;;		None               void
-   243 ;; Registers used:
-   244 ;;		wreg, status,2, status,0
-   245 ;; Tracked objects:
-   246 ;;		On entry : B1F/0
-   247 ;;		On exit  : 0/0
-   248 ;;		Unchanged: 0/0
-   249 ;; Data sizes:     COMMON   BANK0   BANK1   BANK2
-   250 ;;      Params:         0       0       0       0
-   251 ;;      Locals:         0      12       0       0
-   252 ;;      Temps:          1       0       0       0
-   253 ;;      Totals:         1      12       0       0
-   254 ;;Total ram usage:       13 bytes
-   255 ;; Hardware stack levels required when called:    1
-   256 ;; This function calls:
-   257 ;;		Nothing
-   258 ;; This function is called by:
-   259 ;;		Startup code after reset
-   260 ;; This function uses a non-reentrant model
-   261 ;;
-   262                           
+   235 ;;  B               2    4[BANK0 ] int 
+   236 ;;  G               2    2[BANK0 ] int 
+   237 ;;  R               2    0[BANK0 ] int 
+   238 ;; Return value:  Size  Location     Type
+   239 ;;		None               void
+   240 ;; Registers used:
+   241 ;;		wreg, status,2, status,0
+   242 ;; Tracked objects:
+   243 ;;		On entry : B1F/0
+   244 ;;		On exit  : 0/0
+   245 ;;		Unchanged: 0/0
+   246 ;; Data sizes:     COMMON   BANK0   BANK1   BANK2
+   247 ;;      Params:         0       0       0       0
+   248 ;;      Locals:         0       6       0       0
+   249 ;;      Temps:          1       0       0       0
+   250 ;;      Totals:         1       6       0       0
+   251 ;;Total ram usage:        7 bytes
+   252 ;; Hardware stack levels required when called:    1
+   253 ;; This function calls:
+   254 ;;		Nothing
+   255 ;; This function is called by:
+   256 ;;		Startup code after reset
+   257 ;; This function uses a non-reentrant model
+   258 ;;
+   259                           
+   260                           
+   261                           ;psect for function _main
+   262  006A                     _main:	
    263                           
-   264                           ;psect for function _main
-   265  0042                     _main:	
-   266                           
-   267                           ;main.c: 52: int R=0; int G=0; int B=0;
-   268                           
-   269                           ;incstack = 0
-   270                           ; Regs used in _main: [wreg+status,2+status,0]
-   271  0042  0020               	movlb	0	; select bank0
-   272  0043  01A0               	clrf	main@R
-   273  0044  01A1               	clrf	main@R+1
-   274  0045  01A2               	clrf	main@G
-   275  0046  01A3               	clrf	main@G+1
-   276  0047  01A4               	clrf	main@B
-   277  0048  01A5               	clrf	main@B+1
-   278                           
-   279                           ;main.c: 53: int Rx=0; int Gx=0; int Bx=0;
-   280  0049  01A6               	clrf	main@Rx
-   281  004A  01A7               	clrf	main@Rx+1
-   282  004B  01A8               	clrf	main@Gx
-   283  004C  01A9               	clrf	main@Gx+1
-   284  004D  01AA               	clrf	main@Bx
-   285  004E  01AB               	clrf	main@Bx+1
+   264                           ;main.c: 53: int R=0; int G=0; int B=0;
+   265                           
+   266                           ;incstack = 0
+   267                           ; Regs used in _main: [wreg+status,2+status,0]
+   268  006A  0020               	movlb	0	; select bank0
+   269  006B  01A9               	clrf	main@R
+   270  006C  01AA               	clrf	main@R+1
+   271  006D  01AB               	clrf	main@G
+   272  006E  01AC               	clrf	main@G+1
+   273  006F  01AD               	clrf	main@B
+   274  0070  01AE               	clrf	main@B+1
+   275                           
+   276                           ;main.c: 59: OSCCONbits.SCS=0;
+   277  0071  30FC               	movlw	-4
+   278  0072  0021               	movlb	1	; select bank1
+   279  0073  0599               	andwf	25,f	;volatile
+   280                           
+   281                           ;main.c: 60: OSCCONbits.IRCF=0b1110;
+   282  0074  0819               	movf	25,w	;volatile
+   283  0075  3987               	andlw	-121
+   284  0076  3870               	iorlw	112
+   285  0077  0099               	movwf	25	;volatile
    286                           
-   287                           ;main.c: 58: OSCCONbits.SCS=0;
-   288  004F  30FC               	movlw	-4
-   289  0050  0021               	movlb	1	; select bank1
-   290  0051  0599               	andwf	25,f	;volatile
-   291                           
-   292                           ;main.c: 59: OSCCONbits.IRCF=0b1110;
-   293  0052  0819               	movf	25,w	;volatile
-   294  0053  3987               	andlw	-121
-   295  0054  3870               	iorlw	112
-   296  0055  0099               	movwf	25	;volatile
-   297                           
-   298                           ;main.c: 67: TRISA=0b00001110;
-   299  0056  300E               	movlw	14
-   300  0057  008C               	movwf	12	;volatile
-   301                           
-   302                           ;main.c: 68: ANSELA=0b00000000;
-   303  0058  0023               	movlb	3	; select bank3
-   304  0059  018C               	clrf	12	;volatile
-   305                           
-   306                           ;main.c: 73: SSPSTATbits.CKE=1;
-   307  005A  0024               	movlb	4	; select bank4
-   308  005B  1714               	bsf	20,6	;volatile
-   309                           
-   310                           ;main.c: 74: SSP1CON1bits.SSPM=0b0110;
-   311  005C  0815               	movf	21,w	;volatile
-   312  005D  39F0               	andlw	-16
-   313  005E  3806               	iorlw	6
-   314  005F  0095               	movwf	21	;volatile
-   315                           
-   316                           ;main.c: 75: SSP1CON2bits.GCEN=1;
-   317  0060  1796               	bsf	22,7	;volatile
-   318                           
-   319                           ;main.c: 76: SSP1CON2bits.SEN=1;
-   320  0061  1416               	bsf	22,0	;volatile
-   321                           
-   322                           ;main.c: 77: SSP1CON3bits.PCIE=0;
-   323  0062  1317               	bcf	23,6	;volatile
+   287                           ;main.c: 68: TRISA=0b00001110;
+   288  0078  300E               	movlw	14
+   289  0079  008C               	movwf	12	;volatile
+   290                           
+   291                           ;main.c: 69: ANSELA=0b00000000;
+   292  007A  0023               	movlb	3	; select bank3
+   293  007B  018C               	clrf	12	;volatile
+   294                           
+   295                           ;main.c: 74: SSPSTATbits.CKE=1;
+   296  007C  0024               	movlb	4	; select bank4
+   297  007D  1714               	bsf	20,6	;volatile
+   298                           
+   299                           ;main.c: 75: SSP1CON1bits.SSPM=0b0110;
+   300  007E  0815               	movf	21,w	;volatile
+   301  007F  39F0               	andlw	-16
+   302  0080  3806               	iorlw	6
+   303  0081  0095               	movwf	21	;volatile
+   304                           
+   305                           ;main.c: 76: SSP1CON2bits.GCEN=1;
+   306  0082  1796               	bsf	22,7	;volatile
+   307                           
+   308                           ;main.c: 77: SSP1CON2bits.SEN=1;
+   309  0083  1416               	bsf	22,0	;volatile
+   310                           
+   311                           ;main.c: 78: SSP1CON3bits.PCIE=0;
+   312  0084  1317               	bcf	23,6	;volatile
+   313                           
+   314                           ;main.c: 79: SSP1CON3bits.BOEN=0;
+   315  0085  1217               	bcf	23,4	;volatile
+   316                           
+   317                           ;main.c: 80: SSP1ADD=0x20;
+   318  0086  3020               	movlw	32
+   319  0087  0092               	movwf	18	;volatile
+   320                           
+   321                           ;main.c: 85: PIE1bits.SSP1IE=1;
+   322  0088  0021               	movlb	1	; select bank1
+   323  0089  1591               	bsf	17,3	;volatile
    324                           
-   325                           ;main.c: 78: SSP1CON3bits.BOEN=0;
-   326  0063  1217               	bcf	23,4	;volatile
+   325                           ;main.c: 88: INTCONbits.GIE=1;
+   326  008A  178B               	bsf	11,7	;volatile
    327                           
-   328                           ;main.c: 79: SSP1ADD=0x20;
-   329  0064  3020               	movlw	32
-   330  0065  0092               	movwf	18	;volatile
-   331                           
-   332                           ;main.c: 84: PIE1bits.SSP1IE=1;
-   333  0066  0021               	movlb	1	; select bank1
-   334  0067  1591               	bsf	17,3	;volatile
-   335                           
-   336                           ;main.c: 87: INTCONbits.GIE=1;
-   337  0068  178B               	bsf	11,7	;volatile
-   338                           
-   339                           ;main.c: 88: INTCONbits.PEIE=1;
-   340  0069  170B               	bsf	11,6	;volatile
-   341                           
-   342                           ;main.c: 90: SSP1CON1bits.SSPEN=1;
-   343  006A  0024               	movlb	4	; select bank4
-   344  006B  1695               	bsf	21,5	;volatile
-   345                           
-   346                           ;main.c: 96: PORTAbits.RA0=1; PORTAbits.RA5=1; PORTAbits.RA4=1;
-   347  006C  0020               	movlb	0	; select bank0
-   348  006D  140C               	bsf	12,0	;volatile
-   349  006E  168C               	bsf	12,5	;volatile
-   350  006F  160C               	bsf	12,4	;volatile
-   351  0070                     l652:	
-   352                           ;main.c: 97: while(1) {
-   353                           
-   354                           
-   355                           ;main.c: 101: if(Rx<color[0])
-   356  0070  0827               	movf	main@Rx+1,w
-   357  0071  3A80               	xorlw	128
-   358  0072  00F7               	movwf	??_main
-   359  0073  3080               	movlw	128
-   360  0074  0277               	subwf	??_main,w
-   361  0075  1D03               	skipz
-   362  0076  2879               	goto	u145
-   363  0077  082C               	movf	_color,w
-   364  0078  0226               	subwf	main@Rx,w
-   365  0079                     u145:	
-   366  0079  1803               	skipnc
-   367  007A  2881               	goto	l656
-   368                           
-   369                           ;main.c: 102: Rx++;
-   370  007B  3001               	movlw	1
-   371  007C  0020               	movlb	0	; select bank0
-   372  007D  07A6               	addwf	main@Rx,f
-   373  007E  3000               	movlw	0
-   374  007F  3DA7               	addwfc	main@Rx+1,f
-   375  0080  2894               	goto	l39
-   376  0081                     l656:	
-   377                           
-   378                           ;main.c: 103: else {
-   379                           ;main.c: 104: PORTAbits.RA0=~PORTAbits.RA0; color[0]=254-color[0]; Rx=0;
-   380  0081  1003               	clrc
-   381  0082  0020               	movlb	0	; select bank0
-   382  0083  1C0C               	btfss	12,0	;volatile
-   383  0084  1403               	setc
-   384  0085  1C03               	btfss	3,0
-   385  0086  288A               	goto	u150
-   386  0087  0020               	movlb	0	; select bank0
-   387  0088  140C               	bsf	12,0	;volatile
-   388  0089  288C               	goto	l658
-   389  008A                     u150:	
-   390  008A  0020               	movlb	0	; select bank0
-   391  008B  100C               	bcf	12,0	;volatile
-   392  008C                     l658:	
-   393  008C  032C               	decf	_color,w
-   394  008D  3AFF               	xorlw	255
-   395  008E  3EFE               	addlw	254
-   396  008F  00F7               	movwf	??_main
-   397  0090  0877               	movf	??_main,w
-   398  0091  00AC               	movwf	_color
-   399  0092  01A6               	clrf	main@Rx
-   400  0093  01A7               	clrf	main@Rx+1
-   401  0094                     l39:	
-   402                           
-   403                           ;main.c: 105: }
-   404                           ;main.c: 107: if(Gx<color[1])
-   405  0094  0829               	movf	main@Gx+1,w
-   406  0095  3A80               	xorlw	128
-   407  0096  00F7               	movwf	??_main
-   408  0097  3080               	movlw	128
-   409  0098  0277               	subwf	??_main,w
-   410  0099  1D03               	skipz
-   411  009A  289D               	goto	u175
-   412  009B  082D               	movf	_color+1,w
-   413  009C  0228               	subwf	main@Gx,w
-   414  009D                     u175:	
-   415  009D  1803               	skipnc
-   416  009E  28A5               	goto	l664
-   417                           
-   418                           ;main.c: 108: Gx++;
-   419  009F  3001               	movlw	1
-   420  00A0  0020               	movlb	0	; select bank0
-   421  00A1  07A8               	addwf	main@Gx,f
-   422  00A2  3000               	movlw	0
-   423  00A3  3DA9               	addwfc	main@Gx+1,f
-   424  00A4  28B8               	goto	l41
-   425  00A5                     l664:	
-   426                           
-   427                           ;main.c: 109: else {
-   428                           ;main.c: 110: PORTAbits.RA4=~PORTAbits.RA4; color[1]=254-color[1]; Gx=0;
-   429  00A5  1003               	clrc
-   430  00A6  0020               	movlb	0	; select bank0
-   431  00A7  1E0C               	btfss	12,4	;volatile
-   432  00A8  1403               	setc
-   433  00A9  1C03               	btfss	3,0
-   434  00AA  28AE               	goto	u180
-   435  00AB  0020               	movlb	0	; select bank0
-   436  00AC  160C               	bsf	12,4	;volatile
-   437  00AD  28B0               	goto	l666
-   438  00AE                     u180:	
-   439  00AE  0020               	movlb	0	; select bank0
-   440  00AF  120C               	bcf	12,4	;volatile
-   441  00B0                     l666:	
-   442  00B0  032D               	decf	_color+1,w
-   443  00B1  3AFF               	xorlw	255
-   444  00B2  3EFE               	addlw	254
-   445  00B3  00F7               	movwf	??_main
-   446  00B4  0877               	movf	??_main,w
-   447  00B5  00AD               	movwf	_color+1
-   448  00B6  01A8               	clrf	main@Gx
-   449  00B7  01A9               	clrf	main@Gx+1
-   450  00B8                     l41:	
-   451                           
-   452                           ;main.c: 111: }
-   453                           ;main.c: 113: if(Bx<color[2])
-   454  00B8  082B               	movf	main@Bx+1,w
-   455  00B9  3A80               	xorlw	128
-   456  00BA  00F7               	movwf	??_main
-   457  00BB  3080               	movlw	128
-   458  00BC  0277               	subwf	??_main,w
-   459  00BD  1D03               	skipz
-   460  00BE  28C1               	goto	u205
-   461  00BF  082E               	movf	_color+2,w
-   462  00C0  022A               	subwf	main@Bx,w
-   463  00C1                     u205:	
-   464  00C1  1803               	skipnc
-   465  00C2  28C9               	goto	l672
-   466                           
-   467                           ;main.c: 114: Bx++;
-   468  00C3  3001               	movlw	1
-   469  00C4  0020               	movlb	0	; select bank0
-   470  00C5  07AA               	addwf	main@Bx,f
-   471  00C6  3000               	movlw	0
-   472  00C7  3DAB               	addwfc	main@Bx+1,f
-   473  00C8  2870               	goto	l652
-   474  00C9                     l672:	
-   475                           
-   476                           ;main.c: 115: else {
-   477                           ;main.c: 116: PORTAbits.RA5=~PORTAbits.RA5; color[2]=254-color[2]; Bx=0;
-   478  00C9  1003               	clrc
-   479  00CA  0020               	movlb	0	; select bank0
-   480  00CB  1E8C               	btfss	12,5	;volatile
-   481  00CC  1403               	setc
-   482  00CD  1C03               	btfss	3,0
-   483  00CE  28D2               	goto	u210
-   484  00CF  0020               	movlb	0	; select bank0
-   485  00D0  168C               	bsf	12,5	;volatile
-   486  00D1  28D4               	goto	l674
-   487  00D2                     u210:	
-   488  00D2  0020               	movlb	0	; select bank0
-   489  00D3  128C               	bcf	12,5	;volatile
-   490  00D4                     l674:	
-   491  00D4  032E               	decf	_color+2,w
-   492  00D5  3AFF               	xorlw	255
-   493  00D6  3EFE               	addlw	254
-   494  00D7  00F7               	movwf	??_main
-   495  00D8  0877               	movf	??_main,w
-   496  00D9  00AE               	movwf	_color+2
-   497  00DA  01AA               	clrf	main@Bx
-   498  00DB  01AB               	clrf	main@Bx+1
-   499  00DC  2870               	goto	l652
-   500  00DD                     l46:	
-   501                           ;main.c: 117: }
-   502                           ;main.c: 118: }
-   503                           ;main.c: 120: while(1);
-   504                           
-   505  00DD  28DD               	goto	l46
-   506  00DE                     __end_of_main:	
-   507                           
-   508                           	psect	intentry
-   509  0004                     __pintentry:	
-   510 ;; *************** function _isr *****************
-   511 ;; Defined at:
-   512 ;;		line 126 in file "main.c"
-   513 ;; Parameters:    Size  Location     Type
-   514 ;;		None
-   515 ;; Auto vars:     Size  Location     Type
-   516 ;;		None
-   517 ;; Return value:  Size  Location     Type
-   518 ;;		None               void
-   519 ;; Registers used:
-   520 ;;		wreg, fsr1l, fsr1h, status,2, status,0
-   521 ;; Tracked objects:
-   522 ;;		On entry : 0/0
-   523 ;;		On exit  : 0/0
-   524 ;;		Unchanged: 0/0
-   525 ;; Data sizes:     COMMON   BANK0   BANK1   BANK2
-   526 ;;      Params:         0       0       0       0
-   527 ;;      Locals:         0       0       0       0
-   528 ;;      Temps:          3       0       0       0
-   529 ;;      Totals:         3       0       0       0
-   530 ;;Total ram usage:        3 bytes
-   531 ;; Hardware stack levels used:    1
-   532 ;; This function calls:
-   533 ;;		Nothing
-   534 ;; This function is called by:
-   535 ;;		Interrupt level 1
-   536 ;; This function uses a non-reentrant model
-   537 ;;
-   538                           
-   539  0004                     _isr:	
+   328                           ;main.c: 89: INTCONbits.PEIE=1;
+   329  008B  170B               	bsf	11,6	;volatile
+   330                           
+   331                           ;main.c: 91: SSP1CON1bits.SSPEN=1;
+   332  008C  0024               	movlb	4	; select bank4
+   333  008D  1695               	bsf	21,5	;volatile
+   334                           
+   335                           ;main.c: 97: PORTAbits.RA0=1; PORTAbits.RA5=1; PORTAbits.RA4=1;
+   336  008E  0020               	movlb	0	; select bank0
+   337  008F  140C               	bsf	12,0	;volatile
+   338  0090  168C               	bsf	12,5	;volatile
+   339  0091  160C               	bsf	12,4	;volatile
+   340  0092                     l821:	
+   341                           ;main.c: 98: while(1) {
+   342                           
+   343                           
+   344                           ;main.c: 99: if(Rx<color[0])
+   345  0092  0871               	movf	_Rx+1,w
+   346  0093  3A80               	xorlw	128
+   347  0094  00F7               	movwf	??_main
+   348  0095  3080               	movlw	128
+   349  0096  0277               	subwf	??_main,w
+   350  0097  1D03               	skipz
+   351  0098  289B               	goto	u275
+   352  0099  0820               	movf	_color,w
+   353  009A  0270               	subwf	_Rx,w
+   354  009B                     u275:	
+   355  009B  1803               	skipnc
+   356  009C  28A2               	goto	l825
+   357                           
+   358                           ;main.c: 100: Rx++;
+   359  009D  3001               	movlw	1
+   360  009E  07F0               	addwf	_Rx,f
+   361  009F  3000               	movlw	0
+   362  00A0  3DF1               	addwfc	_Rx+1,f
+   363  00A1  28B0               	goto	l831
+   364  00A2                     l825:	
+   365                           
+   366                           ;main.c: 101: else {
+   367                           ;main.c: 102: PORTAbits.RA0=~PORTAbits.RA0; color[0]=~color[0]; Rx=0;
+   368  00A2  1003               	clrc
+   369  00A3  0020               	movlb	0	; select bank0
+   370  00A4  1C0C               	btfss	12,0	;volatile
+   371  00A5  1403               	setc
+   372  00A6  1C03               	btfss	3,0
+   373  00A7  28AB               	goto	u280
+   374  00A8  0020               	movlb	0	; select bank0
+   375  00A9  140C               	bsf	12,0	;volatile
+   376  00AA  28AD               	goto	l827
+   377  00AB                     u280:	
+   378  00AB  0020               	movlb	0	; select bank0
+   379  00AC  100C               	bcf	12,0	;volatile
+   380  00AD                     l827:	
+   381  00AD  09A0               	comf	_color,f
+   382  00AE  01F0               	clrf	_Rx
+   383  00AF  01F1               	clrf	_Rx+1
+   384  00B0                     l831:	
+   385                           
+   386                           ;main.c: 103: }
+   387                           ;main.c: 105: if(Gx<color[1])
+   388  00B0  0020               	movlb	0	; select bank0
+   389  00B1  0826               	movf	_Gx+1,w
+   390  00B2  3A80               	xorlw	128
+   391  00B3  00F7               	movwf	??_main
+   392  00B4  3080               	movlw	128
+   393  00B5  0277               	subwf	??_main,w
+   394  00B6  1D03               	skipz
+   395  00B7  28BA               	goto	u305
+   396  00B8  0821               	movf	_color+1,w
+   397  00B9  0225               	subwf	_Gx,w
+   398  00BA                     u305:	
+   399  00BA  1803               	skipnc
+   400  00BB  28C2               	goto	l835
+   401                           
+   402                           ;main.c: 106: Gx++;
+   403  00BC  3001               	movlw	1
+   404  00BD  0020               	movlb	0	; select bank0
+   405  00BE  07A5               	addwf	_Gx,f
+   406  00BF  3000               	movlw	0
+   407  00C0  3DA6               	addwfc	_Gx+1,f
+   408  00C1  28D3               	goto	l841
+   409  00C2                     l835:	
+   410                           
+   411                           ;main.c: 107: else {
+   412                           ;main.c: 108: PORTAbits.RA4=~PORTAbits.RA4; color[1]=~color[1]; Gx=0;
+   413  00C2  1003               	clrc
+   414  00C3  0020               	movlb	0	; select bank0
+   415  00C4  1E0C               	btfss	12,4	;volatile
+   416  00C5  1403               	setc
+   417  00C6  1C03               	btfss	3,0
+   418  00C7  28CB               	goto	u310
+   419  00C8  0020               	movlb	0	; select bank0
+   420  00C9  160C               	bsf	12,4	;volatile
+   421  00CA  28CD               	goto	l837
+   422  00CB                     u310:	
+   423  00CB  0020               	movlb	0	; select bank0
+   424  00CC  120C               	bcf	12,4	;volatile
+   425  00CD                     l837:	
+   426  00CD  0921               	comf	_color+1,w
+   427  00CE  00F7               	movwf	??_main
+   428  00CF  0877               	movf	??_main,w
+   429  00D0  00A1               	movwf	_color+1
+   430  00D1  01A5               	clrf	_Gx
+   431  00D2  01A6               	clrf	_Gx+1
+   432  00D3                     l841:	
+   433                           
+   434                           ;main.c: 109: }
+   435                           ;main.c: 111: if(Bx<color[2])
+   436  00D3  0824               	movf	_Bx+1,w
+   437  00D4  3A80               	xorlw	128
+   438  00D5  00F7               	movwf	??_main
+   439  00D6  3080               	movlw	128
+   440  00D7  0277               	subwf	??_main,w
+   441  00D8  1D03               	skipz
+   442  00D9  28DC               	goto	u335
+   443  00DA  0822               	movf	_color+2,w
+   444  00DB  0223               	subwf	_Bx,w
+   445  00DC                     u335:	
+   446  00DC  1803               	skipnc
+   447  00DD  28E4               	goto	l845
+   448                           
+   449                           ;main.c: 112: Bx++;
+   450  00DE  3001               	movlw	1
+   451  00DF  0020               	movlb	0	; select bank0
+   452  00E0  07A3               	addwf	_Bx,f
+   453  00E1  3000               	movlw	0
+   454  00E2  3DA4               	addwfc	_Bx+1,f
+   455  00E3  2892               	goto	l821
+   456  00E4                     l845:	
+   457                           
+   458                           ;main.c: 113: else {
+   459                           ;main.c: 114: PORTAbits.RA5=~PORTAbits.RA5; color[2]=~color[2]; Bx=0;
+   460  00E4  1003               	clrc
+   461  00E5  0020               	movlb	0	; select bank0
+   462  00E6  1E8C               	btfss	12,5	;volatile
+   463  00E7  1403               	setc
+   464  00E8  1C03               	btfss	3,0
+   465  00E9  28ED               	goto	u340
+   466  00EA  0020               	movlb	0	; select bank0
+   467  00EB  168C               	bsf	12,5	;volatile
+   468  00EC  28EF               	goto	l847
+   469  00ED                     u340:	
+   470  00ED  0020               	movlb	0	; select bank0
+   471  00EE  128C               	bcf	12,5	;volatile
+   472  00EF                     l847:	
+   473  00EF  0922               	comf	_color+2,w
+   474  00F0  00F7               	movwf	??_main
+   475  00F1  0877               	movf	??_main,w
+   476  00F2  00A2               	movwf	_color+2
+   477  00F3  01A3               	clrf	_Bx
+   478  00F4  01A4               	clrf	_Bx+1
+   479  00F5  2892               	goto	l821
+   480  00F6                     l52:	
+   481                           ;main.c: 115: }
+   482                           ;main.c: 116: }
+   483                           ;main.c: 118: while(1);
+   484                           
+   485  00F6  28F6               	goto	l52
+   486  00F7                     __end_of_main:	
+   487                           
+   488                           	psect	intentry
+   489  0004                     __pintentry:	
+   490 ;; *************** function _isr *****************
+   491 ;; Defined at:
+   492 ;;		line 124 in file "main.c"
+   493 ;; Parameters:    Size  Location     Type
+   494 ;;		None
+   495 ;; Auto vars:     Size  Location     Type
+   496 ;;		None
+   497 ;; Return value:  Size  Location     Type
+   498 ;;		None               void
+   499 ;; Registers used:
+   500 ;;		wreg, fsr0l, fsr0h, fsr1l, fsr1h, status,2, status,0
+   501 ;; Tracked objects:
+   502 ;;		On entry : 0/0
+   503 ;;		On exit  : 0/0
+   504 ;;		Unchanged: 0/0
+   505 ;; Data sizes:     COMMON   BANK0   BANK1   BANK2
+   506 ;;      Params:         0       0       0       0
+   507 ;;      Locals:         0       0       0       0
+   508 ;;      Temps:          3       0       0       0
+   509 ;;      Totals:         3       0       0       0
+   510 ;;Total ram usage:        3 bytes
+   511 ;; Hardware stack levels used:    1
+   512 ;; This function calls:
+   513 ;;		Nothing
+   514 ;; This function is called by:
+   515 ;;		Interrupt level 1
+   516 ;; This function uses a non-reentrant model
+   517 ;;
+   518                           
+   519  0004                     _isr:	
+   520                           
+   521                           ;incstack = 0
+   522                           ; Regs used in _isr: [wreg-fsr1h+status,2+status,0]
+   523  0004  147E               	bsf	126,0	;set compiler interrupt flag (level 1)
+   524  0005  3180               	pagesel	$
+   525  0006  0020               	movlb	0	; select bank0
+   526  0007  087F               	movf	127,w
+   527  0008  00F6               	movwf	??_isr+2
+   528                           
+   529                           ;main.c: 125: if(PIR1bits.SSP1IF==1) {
+   530  0009  1D91               	btfss	17,3	;volatile
+   531  000A  2852               	goto	i1l60
+   532                           
+   533                           ;main.c: 126: PIR1bits.SSP1IF=0;
+   534  000B  1191               	bcf	17,3	;volatile
+   535                           
+   536                           ;main.c: 128: if(SSPSTATbits.D_nA==0){
+   537  000C  0024               	movlb	4	; select bank4
+   538  000D  1A94               	btfsc	20,5	;volatile
+   539  000E  2818               	goto	i1l59
    540                           
-   541                           ;incstack = 0
-   542                           ; Regs used in _isr: [wreg+fsr1l+fsr1h+status,2+status,0]
-   543  0004  147E               	bsf	126,0	;set compiler interrupt flag (level 1)
-   544  0005  3180               	pagesel	$
-   545  0006  0020               	movlb	0	; select bank0
-   546  0007  087F               	movf	127,w
-   547  0008  00F6               	movwf	??_isr+2
-   548                           
-   549                           ;main.c: 127: if(PIR1bits.SSP1IF==1) {
-   550  0009  1D91               	btfss	17,3	;volatile
-   551  000A  2830               	goto	i1l54
-   552                           
-   553                           ;main.c: 128: PIR1bits.SSP1IF=0;
-   554  000B  1191               	bcf	17,3	;volatile
+   541                           ;main.c: 129: random=SSP1BUF;
+   542  000F  0811               	movf	17,w	;volatile
+   543  0010  00F4               	movwf	??_isr
+   544  0011  01F5               	clrf	??_isr+1
+   545  0012  0874               	movf	??_isr,w
+   546  0013  0020               	movlb	0	; select bank0
+   547  0014  00A7               	movwf	_random
+   548  0015  0875               	movf	??_isr+1,w
+   549  0016  00A8               	movwf	_random+1
+   550  0017  284E               	goto	L1
+   551  0018                     i1l59:	
+   552                           ;main.c: 135: return;
+   553                           
+   554                           ;main.c: 133: SSP1CON1bits.WCOL=0;
    555                           
-   556                           ;main.c: 130: if(SSPSTATbits.D_nA==0){
-   557  000C  0024               	movlb	4	; select bank4
-   558  000D  1A94               	btfsc	20,5	;volatile
-   559  000E  2818               	goto	i1l53
+   556                           ;main.c: 132: SSP1CON1bits.SSPOV=0;
+   557                           
+   558                           ;main.c: 130: CKP=1;
+   559                           
    560                           
-   561                           ;main.c: 131: random=SSP1BUF;
-   562  000F  0811               	movf	17,w	;volatile
-   563  0010  00F4               	movwf	??_isr
-   564  0011  01F5               	clrf	??_isr+1
-   565  0012  0874               	movf	??_isr,w
-   566  0013  00F0               	movwf	_random
-   567  0014  0875               	movf	??_isr+1,w
-   568  0015  00F1               	movwf	_random+1
-   569                           
-   570                           ;main.c: 132: CKP=1;
-   571  0016  1615               	bsf	21,4	;volatile
-   572  0017  282E               	goto	i1l702
-   573  0018                     i1l53:	
-   574                           ;main.c: 137: return;
+   561                           ;main.c: 139: }
+   562                           ;main.c: 140: if(SSPSTATbits.D_nA==1) {
+   563  0018  1E94               	btfss	20,5	;volatile
+   564  0019  2852               	goto	i1l60
+   565                           
+   566                           ;main.c: 141: color[x]=SSP1BUF;
+   567  001A  0811               	movf	17,w	;volatile
+   568  001B  00F4               	movwf	??_isr
+   569  001C  0872               	movf	_x,w
+   570  001D  3E20               	addlw	(low (_color| 0))& (0+255)
+   571  001E  0086               	movwf	6
+   572  001F  0187               	clrf	7
+   573  0020  0874               	movf	??_isr,w
+   574  0021  0081               	movwf	1
    575                           
-   576                           ;main.c: 135: SSP1CON1bits.WCOL=0;
-   577                           
-   578                           ;main.c: 134: SSP1CON1bits.SSPOV=0;
-   579                           
+   576                           ;main.c: 143: switch(x) {
+   577  0022  282C               	goto	i1l743
+   578  0023                     i1l63:	
+   579                           ;main.c: 144: case 0:
    580                           
-   581                           ;main.c: 141: }
-   582                           ;main.c: 142: if(SSPSTATbits.D_nA==1) {
-   583  0018  1E94               	btfss	20,5	;volatile
-   584  0019  2830               	goto	i1l54
+   581                           
+   582                           ;main.c: 145: PORTAbits.RA0=0;
+   583  0023  0020               	movlb	0	; select bank0
+   584  0024  100C               	bcf	12,0	;volatile
    585                           
-   586                           ;main.c: 143: color[x]=SSP1BUF;
-   587  001A  0811               	movf	17,w	;volatile
-   588  001B  00F4               	movwf	??_isr
-   589  001C  0872               	movf	_x,w
-   590  001D  3E2C               	addlw	(low (_color| 0))& (0+255)
-   591  001E  0086               	movwf	6
-   592  001F  0187               	clrf	7
-   593  0020  0874               	movf	??_isr,w
-   594  0021  0081               	movwf	1
+   586                           ;main.c: 146: break;
+   587  0025  283C               	goto	i1l745
+   588  0026                     i1l65:	
+   589                           ;main.c: 147: case 1:
+   590                           
+   591                           
+   592                           ;main.c: 148: PORTAbits.RA4=0;
+   593  0026  0020               	movlb	0	; select bank0
+   594  0027  120C               	bcf	12,4	;volatile
    595                           
-   596                           ;main.c: 144: CKP=1;
-   597  0022  1615               	bsf	21,4	;volatile
-   598                           
-   599                           ;main.c: 145: x++;
-   600  0023  3001               	movlw	1
-   601  0024  07F2               	addwf	_x,f
-   602  0025  3000               	movlw	0
-   603  0026  3DF3               	addwfc	_x+1,f
-   604                           
-   605                           ;main.c: 146: if(x==3)
-   606  0027  3003               	movlw	3
-   607  0028  0672               	xorwf	_x,w
-   608  0029  0473               	iorwf	_x+1,w
-   609  002A  1D03               	btfss	3,2
-   610  002B  282E               	goto	i1l702
+   596                           ;main.c: 149: break;
+   597  0028  283C               	goto	i1l745
+   598  0029                     i1l66:	
+   599                           ;main.c: 150: case 2:
+   600                           
+   601                           
+   602                           ;main.c: 151: PORTAbits.RA5=0;
+   603  0029  0020               	movlb	0	; select bank0
+   604  002A  128C               	bcf	12,5	;volatile
+   605                           
+   606                           ;main.c: 153: }
+   607                           
+   608                           ;main.c: 152: break;
+   609  002B  283C               	goto	i1l745
+   610  002C                     i1l743:	
    611                           
-   612                           ;main.c: 147: x=0;
-   613  002C  01F2               	clrf	_x
-   614  002D  01F3               	clrf	_x+1
-   615  002E                     i1l702:	
-   616                           
-   617                           ;main.c: 149: SSP1CON1bits.SSPOV=0;
-   618  002E  1315               	bcf	21,6	;volatile
-   619                           
-   620                           ;main.c: 150: SSP1CON1bits.WCOL=0;
-   621  002F  1395               	bcf	21,7	;volatile
-   622  0030                     i1l54:	
-   623                           ;main.c: 156: }
-   624                           ;main.c: 158: }
-   625                           ;main.c: 160: return;
-   626                           
-   627                           ;main.c: 152: return;
-   628                           
-   629  0030  0876               	movf	??_isr+2,w
-   630  0031  0020               	movlb	0	; select bank0
-   631  0032  00FF               	movwf	127
-   632  0033  107E               	bcf	126,0	;clear compiler interrupt flag (level 1)
-   633  0034  0009               	retfie
-   634  0035                     __end_of_isr:	
-   635  007E                     btemp	set	126	;btemp
-   636  007E                     int$flags	set	126
-   637  007E                     wtemp	set	126
-   638  007E                     wtemp0	set	126
-   639  0080                     wtemp1	set	128
-   640  0082                     wtemp2	set	130
-   641  0084                     wtemp3	set	132
-   642  0086                     wtemp4	set	134
-   643  0088                     wtemp5	set	136
-   644  007F                     wtemp6	set	127
-   645  007E                     ttemp	set	126
-   646  007E                     ttemp0	set	126
-   647  0081                     ttemp1	set	129
-   648  0084                     ttemp2	set	132
-   649  0087                     ttemp3	set	135
-   650  007F                     ttemp4	set	127
-   651  007E                     ltemp	set	126
-   652  007E                     ltemp0	set	126
-   653  0082                     ltemp1	set	130
-   654  0086                     ltemp2	set	134
-   655  0080                     ltemp3	set	128
+   612                           ; Switch on 2 bytes has been partitioned into a top level switch of size 1, and 1 sub-sw
+      +                          itches
+   613                           ; Switch size 1, requested type "space"
+   614                           ; Number of cases is 1, Range of values is 0 to 0
+   615                           ; switch strategies available:
+   616                           ; Name         Instructions Cycles
+   617                           ; simple_byte            4     3 (average)
+   618                           ; direct_byte            8     6 (fixed)
+   619                           ; jumptable            260     6 (fixed)
+   620                           ;	Chosen strategy is simple_byte
+   621  002C  0873               	movf	_x+1,w
+   622  002D  3A00               	xorlw	0	; case 0
+   623  002E  1903               	skipnz
+   624  002F  2831               	goto	i1l871
+   625  0030  283C               	goto	i1l745
+   626  0031                     i1l871:	
+   627                           
+   628                           ; Switch size 1, requested type "space"
+   629                           ; Number of cases is 3, Range of values is 0 to 2
+   630                           ; switch strategies available:
+   631                           ; Name         Instructions Cycles
+   632                           ; simple_byte           10     6 (average)
+   633                           ; direct_byte           12     6 (fixed)
+   634                           ; jumptable            260     6 (fixed)
+   635                           ;	Chosen strategy is simple_byte
+   636  0031  0872               	movf	_x,w
+   637  0032  3A00               	xorlw	0	; case 0
+   638  0033  1903               	skipnz
+   639  0034  2823               	goto	i1l63
+   640  0035  3A01               	xorlw	1	; case 1
+   641  0036  1903               	skipnz
+   642  0037  2826               	goto	i1l65
+   643  0038  3A03               	xorlw	3	; case 2
+   644  0039  1903               	skipnz
+   645  003A  2829               	goto	i1l66
+   646  003B  283C               	goto	i1l745
+   647  003C                     i1l745:	
+   648                           
+   649                           ;main.c: 154: x++;
+   650  003C  3001               	movlw	1
+   651  003D  07F2               	addwf	_x,f
+   652  003E  3000               	movlw	0
+   653  003F  3DF3               	addwfc	_x+1,f
+   654                           
+   655                           ;main.c: 155: if(x==3)
+   656  0040  3003               	movlw	3
+   657  0041  0672               	xorwf	_x,w
+   658  0042  0473               	iorwf	_x+1,w
+   659  0043  1D03               	btfss	3,2
+   660  0044  2847               	goto	i1l67
+   661                           
+   662                           ;main.c: 156: x=0;
+   663  0045  01F2               	clrf	_x
+   664  0046  01F3               	clrf	_x+1
+   665  0047                     i1l67:	
+   666                           
+   667                           ;main.c: 157: Rx=0;
+   668  0047  01F0               	clrf	_Rx
+   669  0048  01F1               	clrf	_Rx+1
+   670                           
+   671                           ;main.c: 158: Gx=0;
+   672  0049  0020               	movlb	0	; select bank0
+   673  004A  01A5               	clrf	_Gx
+   674  004B  01A6               	clrf	_Gx+1
+   675                           
+   676                           ;main.c: 159: Bx=0;
+   677  004C  01A3               	clrf	_Bx
+   678  004D  01A4               	clrf	_Bx+1
+   679  004E                     L1:	
+   680                           
+   681                           ;main.c: 161: CKP=1;
+   682  004E  0024               	movlb	4	; select bank4
+   683  004F  1615               	bsf	21,4	;volatile
+   684                           
+   685                           ;main.c: 163: SSP1CON1bits.SSPOV=0;
+   686  0050  1315               	bcf	21,6	;volatile
+   687                           
+   688                           ;main.c: 164: SSP1CON1bits.WCOL=0;
+   689  0051  1395               	bcf	21,7	;volatile
+   690  0052                     i1l60:	
+   691                           ;main.c: 170: }
+   692                           ;main.c: 172: }
+   693                           ;main.c: 174: return;
+   694                           
+   695                           ;main.c: 166: return;
+   696                           
+   697  0052  0876               	movf	??_isr+2,w
+   698  0053  0020               	movlb	0	; select bank0
+   699  0054  00FF               	movwf	127
+   700  0055  107E               	bcf	126,0	;clear compiler interrupt flag (level 1)
+   701  0056  0009               	retfie
+   702  0057                     __end_of_isr:	
+   703  007E                     btemp	set	126	;btemp
+   704  007E                     int$flags	set	126
+   705  007E                     wtemp	set	126
+   706  007E                     wtemp0	set	126
+   707  0080                     wtemp1	set	128
+   708  0082                     wtemp2	set	130
+   709  0084                     wtemp3	set	132
+   710  0086                     wtemp4	set	134
+   711  0088                     wtemp5	set	136
+   712  007F                     wtemp6	set	127
+   713  007E                     ttemp	set	126
+   714  007E                     ttemp0	set	126
+   715  0081                     ttemp1	set	129
+   716  0084                     ttemp2	set	132
+   717  0087                     ttemp3	set	135
+   718  007F                     ttemp4	set	127
+   719  007E                     ltemp	set	126
+   720  007E                     ltemp0	set	126
+   721  0082                     ltemp1	set	130
+   722  0086                     ltemp2	set	134
+   723  0080                     ltemp3	set	128
 
 
 Data Sizes:
     Strings     0
     Constant    0
     Data        0
-    BSS         7
+    BSS         13
     Persistent  0
     Stack       0
 
 Auto Spaces:
     Space          Size  Autos    Used
     COMMON           14      4       8
-    BANK0            80     12      15
+    BANK0            80      6      15
     BANK1            80      0       0
     BANK2            80      0       0
 
@@ -717,9 +786,9 @@ Call Graph Tables:
  ---------------------------------------------------------------------------------
  (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
  ---------------------------------------------------------------------------------
- (0) _main                                                13    13      0      78
+ (0) _main                                                 7     7      0       9
                                               3 COMMON     1     1      0
-                                              0 BANK0     12    12      0
+                                              0 BANK0      6     6      0
  ---------------------------------------------------------------------------------
  Estimated maximum stack depth 0
  ---------------------------------------------------------------------------------
@@ -758,7 +827,7 @@ ABS                  0      0      17       4        0.0%
 BITBANK0            50      0       0       5        0.0%
 BITSFR4              0      0       0       5        0.0%
 SFR4                 0      0       0       5        0.0%
-BANK0               50      C       F       6       18.8%
+BANK0               50      6       F       6       18.8%
 BITSFR5              0      0       0       6        0.0%
 SFR5                 0      0       0       6        0.0%
 BITBANK1            50      0       0       7        0.0%
@@ -821,39 +890,41 @@ SFR31                0      0       0      32        0.0%
 
 
 Microchip Technology PIC Macro Assembler V1.35 build -356382666 
-Symbol Table                                                                                   Tue Jan 26 20:31:38 2016
+Symbol Table                                                                                   Tue Jan 26 21:45:40 2016
 
                       _x 0072              __CFG_CP$OFF 0000              _SSPSTATbits 0214  
-                     l41 00B8                       l46 00DD                       l39 0094  
-                    l652 0070                      l672 00C9                      l664 00A5  
-                    l656 0081                      l674 00D4                      l666 00B0  
-                    l658 008C                      _CKP 10AC                      u210 00D2  
-                    u205 00C1                      u150 008A                      u145 0079  
-                    u180 00AE                      u175 009D             __CFG_CPD$OFF 0000  
-                    _isr 0004                     ?_isr 0074                     i1l53 0018  
-                   i1l54 0030                     _main 0042                     fsr1h 0007  
-                   indf1 0001                     fsr1l 0006                     btemp 007E  
-                   ltemp 007E                     start 0035                     ttemp 007E  
-                   wtemp 007E            __CFG_IESO$OFF 0000            __CFG_MCLRE$ON 0000  
-                  ??_isr 0074            __CFG_PLLEN$ON 0000                    ?_main 0074  
-          __CFG_WDTE$OFF 0000                    i1l702 002E                    _TRISA 008C  
-          __CFG_PWRTE$ON 0000           __CFG_FCMEN$OFF 0000                    _color 002C  
-                  main@B 0024                    main@G 0022                    main@R 0020  
+                     l52 00F6                       _Bx 0023                       _Gx 0025  
+                     _Rx 0070                      l821 0092                      l831 00B0  
+                    l841 00D3                      l825 00A2                      l835 00C2  
+                    l827 00AD                      l845 00E4                      l837 00CD  
+                    l847 00EF                      _CKP 10AC                      u310 00CB  
+                    u305 00BA                      u340 00ED                      u335 00DC  
+                    u280 00AB             __CFG_CPD$OFF 0000                      u275 009B  
+                    _isr 0004                     ?_isr 0074                     i1l60 0052  
+                   i1l63 0023                     i1l65 0026                     i1l66 0029  
+                   i1l67 0047                     i1l59 0018                     _main 006A  
+                   fsr1h 0007                     indf1 0001                     fsr1l 0006  
+                   btemp 007E                     ltemp 007E                     start 0057  
+                   ttemp 007E                     wtemp 007E            __CFG_IESO$OFF 0000  
+          __CFG_MCLRE$ON 0000                    ??_isr 0074            __CFG_PLLEN$ON 0000  
+                  ?_main 0074            __CFG_WDTE$OFF 0000                    i1l743 002C  
+                  i1l745 003C                    i1l871 0031                    _TRISA 008C  
+          __CFG_PWRTE$ON 0000           __CFG_FCMEN$OFF 0000                    _color 0020  
+                  main@B 002D                    main@G 002B                    main@R 0029  
          __CFG_BOREN$OFF 0000                    ltemp0 007E                    ltemp1 0082  
                   ltemp2 0086                    ltemp3 0080                    ttemp0 007E  
                   ttemp1 0081                    ttemp2 0084                    ttemp3 0087  
                   ttemp4 007F                    status 0003                    wtemp0 007E  
                   wtemp1 0080                    wtemp2 0082                    wtemp3 0084  
                   wtemp4 0086                    wtemp5 0088                    wtemp6 007F  
-        __initialization 0037             __end_of_main 00DE                   ??_main 0077  
-                 _ANSELA 018C                   _random 0070                   main@Bx 002A  
-                 main@Gx 0028                   main@Rx 0026  __end_of__initialization 003E  
-         __pcstackCOMMON 0074               __pbssBANK0 002C               __pmaintext 0042  
+        __initialization 0059             __end_of_main 00F7                   ??_main 0077  
+                 _ANSELA 018C                   _random 0027  __end_of__initialization 0066  
+         __pcstackCOMMON 0074               __pbssBANK0 0020               __pmaintext 006A  
              __pintentry 0004                  _SSP1ADD 0212                  _SSP1BUF 0211  
-           __size_of_isr 0031     end_of_initialization 003E                _PORTAbits 000C  
-       __CFG_FOSC$INTOSC 0000      start_initialization 0037              __end_of_isr 0035  
-            __pbssCOMMON 0070                ___latbits 0001            __pcstackBANK0 0020  
+           __size_of_isr 0053     end_of_initialization 0066                _PORTAbits 000C  
+       __CFG_FOSC$INTOSC 0000      start_initialization 0059              __end_of_isr 0057  
+            __pbssCOMMON 0070                ___latbits 0001            __pcstackBANK0 0029  
                _PIE1bits 0091                 _PIR1bits 0011             _SSP1CON1bits 0215  
-           _SSP1CON2bits 0216             _SSP1CON3bits 0217            __size_of_main 009C  
+           _SSP1CON2bits 0216             _SSP1CON3bits 0217            __size_of_main 008D  
                int$flags 007E               _INTCONbits 000B                 intlevel1 0000  
       __CFG_CLKOUTEN$OFF 0000               _OSCCONbits 0099  

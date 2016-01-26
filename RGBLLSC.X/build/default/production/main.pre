@@ -2788,25 +2788,25 @@ extern __bit __timeout;
 # 41
 int static x=0;
 unsigned char static color[3] ={0,0,0};
+int Rx=0; int Gx=0; int Bx=0;
 
 int random;
 
-# 48
+# 49
 void main(void) {
 
-# 52
+# 53
 int R=0; int G=0; int B=0;
-int Rx=0; int Gx=0; int Bx=0;
 
-# 58
+# 59
 OSCCONbits.SCS=0;
 OSCCONbits.IRCF=0b1110;
 
-# 67
+# 68
 TRISA=0b00001110;
 ANSELA=0b00000000;
 
-# 73
+# 74
 SSPSTATbits.CKE=1;
 SSP1CON1bits.SSPM=0b0110;
 SSP1CON2bits.GCEN=1;
@@ -2815,7 +2815,7 @@ SSP1CON3bits.PCIE=0;
 SSP1CON3bits.BOEN=0;
 SSP1ADD=0x20;
 
-# 84
+# 85
 PIE1bits.SSP1IE=1;
 
 
@@ -2824,35 +2824,32 @@ INTCONbits.PEIE=1;
 
 SSP1CON1bits.SSPEN=1;
 
-# 96
+# 97
 PORTAbits.RA0=1; PORTAbits.RA5=1; PORTAbits.RA4=1;
 while(1) {
-
-
-
 if(Rx<color[0])
 Rx++;
 else {
-PORTAbits.RA0=~PORTAbits.RA0; color[0]=254-color[0]; Rx=0;
+PORTAbits.RA0=~PORTAbits.RA0; color[0]=~color[0]; Rx=0;
 }
 
 if(Gx<color[1])
 Gx++;
 else {
-PORTAbits.RA4=~PORTAbits.RA4; color[1]=254-color[1]; Gx=0;
+PORTAbits.RA4=~PORTAbits.RA4; color[1]=~color[1]; Gx=0;
 }
 
 if(Bx<color[2])
 Bx++;
 else {
-PORTAbits.RA5=~PORTAbits.RA5; color[2]=254-color[2]; Bx=0;
+PORTAbits.RA5=~PORTAbits.RA5; color[2]=~color[2]; Bx=0;
 }
 }
 
 while(1);
 }
 
-# 126
+# 124
 void interrupt isr(void) {
 if(PIR1bits.SSP1IF==1) {
 PIR1bits.SSP1IF=0;
@@ -2871,10 +2868,26 @@ return;
 }
 if(SSPSTATbits.D_nA==1) {
 color[x]=SSP1BUF;
-CKP=1;
+
+switch(x) {
+case 0:
+PORTAbits.RA0=0;
+break;
+case 1:
+PORTAbits.RA4=0;
+break;
+case 2:
+PORTAbits.RA5=0;
+break;
+}
 x++;
 if(x==3)
 x=0;
+Rx=0;
+Gx=0;
+Bx=0;
+
+CKP=1;
 
 SSP1CON1bits.SSPOV=0;
 SSP1CON1bits.WCOL=0;
