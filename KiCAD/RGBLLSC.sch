@@ -449,8 +449,6 @@ F 3 "" H 1450 2950 50  0000 C CNN
 	1    1450 2950
 	1    0    0    -1  
 $EndComp
-Text Notes 850  2600 0    60   ~ 0
-Screw Terminal\n
 Wire Notes Line
 	800  2450 800  3300
 Wire Notes Line
@@ -518,7 +516,7 @@ L R R7
 U 1 1 56A97D53
 P 1100 2200
 F 0 "R7" V 1180 2200 50  0000 C CNN
-F 1 "R" V 1100 2200 50  0000 C CNN
+F 1 "470" V 1100 2200 50  0000 C CNN
 F 2 "Resistors_SMD:R_0603" V 1030 2200 50  0001 C CNN
 F 3 "" H 1100 2200 50  0000 C CNN
 	1    1100 2200
@@ -627,4 +625,6 @@ F 3 "" H 1300 2850 50  0000 C CNN
 	1    1300 2850
 	1    0    0    -1  
 $EndComp
+Text Notes 950  2550 0    60   ~ 0
+Main Input\n
 $EndSCHEMATC
