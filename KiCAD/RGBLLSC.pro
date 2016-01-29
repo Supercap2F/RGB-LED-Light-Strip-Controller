@@ -1,4 +1,4 @@
-update=Thu 28 Jan 2016 04:32:12 PM CST
+update=Fri 29 Jan 2016 04:52:07 PM CST
 version=1
 last_client=kicad
 [pcbnew]
@@ -62,7 +62,7 @@ LibName30=/home/supercap2f/Documents/Electronics/KiCAD/User
 [schematic_editor]
 version=1
 PageLayoutDescrFile=
-PlotDirectoryName=
+PlotDirectoryName=../../../../
 SubpartIdSeparator=0
 SubpartFirstId=65
 NetFmtName=
