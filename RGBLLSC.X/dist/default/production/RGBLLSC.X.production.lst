@@ -1,7 +1,7 @@
 
 
 Microchip Technology PIC LITE Macro Assembler V1.35 build -356382666 
-                                                                                               Tue Jan 26 22:15:15 2016
+                                                                                               Wed Feb  3 00:58:47 2016
 
 Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080246
      1                           	processor	12F1840
@@ -558,8 +558,8 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
    552  0018  1E94               	btfss	20,5	;volatile
    553  0019  2852               	goto	i1l60
    554                           
-   555                           ;main.c: 135: color[ColorSel]=SSP1BUF;
-   556  001A  0811               	movf	17,w	;volatile
+   555                           ;main.c: 135: color[ColorSel]=~SSP1BUF;
+   556  001A  0911               	comf	17,w	;volatile
    557  001B  00F9               	movwf	??_isr
    558  001C  0873               	movf	_ColorSel,w
    559  001D  3E70               	addlw	(low (_color| 0))& (0+255)
@@ -874,7 +874,7 @@ SFR31                0      0       0      32        0.0%
 
 
 Microchip Technology PIC Macro Assembler V1.35 build -356382666 
-Symbol Table                                                                                   Tue Jan 26 22:15:15 2016
+Symbol Table                                                                                   Wed Feb  3 00:58:47 2016
 
             __CFG_CP$OFF 0000              _SSPSTATbits 0214                       l52 00EF  
                      _Bx 0020                       _Gx 0075                       _Rx 0077  

@@ -83,7 +83,7 @@ void main(void) {
     INTCONbits.PEIE=1; // enable peripheral interrupts
     
     SSP1CON1bits.SSPEN=1; // enable the MSSP module 
-    
+    pickit 3 pinout
     /***********************************************
      * LED loop: this loop sends PWM signals to    *
      * the LEDs based upon the R,G and B variables *
@@ -132,7 +132,7 @@ void interrupt isr(void) {
             return;               // return back to LED loop
         }
         if(SSPSTATbits.D_nA==1){  // if the last byte received was data
-            color[ColorSel]=SSP1BUF; // load the data into the right color 
+            color[ColorSel]=~SSP1BUF; // load the data into the right color 
             switch(ColorSel){     // if the selected color is
                 case 0:           //    RED clear the RED LED   
                     RED=0;        //

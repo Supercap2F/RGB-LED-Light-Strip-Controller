@@ -2376,9 +2376,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 "134
 [e $ ! == -> . . _SSPSTATbits 0 5 `i -> 1 `i 279  ]
 {
-[; ;main.c: 135: color[ColorSel]=SSP1BUF;
+[; ;main.c: 135: color[ColorSel]=~SSP1BUF;
 "135
-[e = *U + &U _color * -> -> _ColorSel `ui `ux -> -> # *U &U _color `ui `ux _SSP1BUF ]
+[e = *U + &U _color * -> -> _ColorSel `ui `ux -> -> # *U &U _color `ui `ux -> ~ -> _SSP1BUF `i `uc ]
 [; ;main.c: 136: switch(ColorSel){
 "136
 [e $U 281  ]

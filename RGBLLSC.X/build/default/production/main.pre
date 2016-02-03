@@ -2861,7 +2861,7 @@ SSP1CON1bits.WCOL=0;
 return;
 }
 if(SSPSTATbits.D_nA==1){
-color[ColorSel]=SSP1BUF;
+color[ColorSel]=~SSP1BUF;
 switch(ColorSel){
 case 0:
 PORTAbits.RA0=0;
